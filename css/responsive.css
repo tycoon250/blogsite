@@ -1,0 +1,66 @@
+@media screen and (max-width: 900px) {
+	.addfull{
+		width: 100%;
+	}
+	.hiddable{
+		display: none;
+	}
+	.w-400p,.w-500p,.w-450p{
+		width: 100%;
+	}
+	.blogsholder{
+		margin-left: 0;
+		padding: 10px;
+		box-sizing: border-box;
+	}
+	.bebackground{
+		padding: 0;
+		z-index: -1;
+	}
+	.bebackground div span{
+		width: 100%;
+	}
+	.bebackground div {
+		width: 100%;
+	}
+	.nop-resp{
+		padding: 0;
+	}
+	.h-700p-resp{
+		height: 700px;
+	}
+	.mt-50p-resp{
+		margin-top: 50px;
+	}
+	.bc-black-resp{
+		background-color: black;
+	}
+	.white-resp{
+		color: white;
+		text-shadow: 0px 0.5px 3px rgb(255 255 255);
+		font-size: 20px;
+		
+	}
+	.black-resp{
+		color: black;
+	}
+	.show-resp{
+		display: grid;
+	}
+}
+@media screen and (max-width: 600px){
+	.blog{
+		width: 100%;
+		margin: auto;
+		margin-bottom: 10px;
+	}
+	.skill{
+		width: 100%;
+		margin: auto;
+		margin-bottom: 10px;
+
+	}
+	.bblock{
+		display: block;
+	}
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Admin Login</title>
+</head>
+<link rel="stylesheet" type="text/css" href="../css/styling.css">
+<script type="module" defer src="js/index.js"></script>
+<!-- <link rel="stylesheet" type="text/css" href="../css/responsive.css"> -->
+<link data-default-icon="" data-badged-icon="" rel="shortcut icon" href="https">
+<script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous"> -->
+
+<body id="body">
+<div class="w-100 h-100 bsbb ovh p-a bc-gray">
+	<div class="cntr w-300p h-350p br-5p zi-1000 bc-white ovh p-10p">
+		<div class="form-hol w-100 h-80 p-r">
+			<form method="POST" action="" id="login-form" class="w-100 h-100" name="admin-login-form">
+				<div class="w-100 h-80p center">
+					<font class="fs-20p theme capitalize arial ">store</font>
+				</div>
+				<div class="w-100 h-70p">
+					<div class="w-100 parent p-5p p-r">
+						<font class="dgray p-a fs-15p label pi-none us-none  ml-30p ">username</font>
+						<input type="text" name="username" class=" black input-2 w-100 no-outline pl-0p center bsbb  mt--3p p-10p fs-15p" placeholder="">	
+						<span class="p-a r-0 t-0 mr-10p mt-12p ">
+										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<circle cx="10" cy="10" r="10" fill="#FF0000"/>
+											<path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"/>
+										</svg>
+										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<circle cx="10" cy="10" r="10" fill="#68D753"/>
+											<line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"/>
+											<line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"/>
+										</svg>
+									</span>
+									<small class="red verdana hide ml-5p">error mssg</small>				
+					</div>
+				</div>
+				<div class="w-100 h-60p ">
+					<div class="w-100 parent w-100 p-5p p-r">
+						<font class="dgray p-a fs-15p pi-none us-none label ml-30p ">password</font>
+						<input type="password" name="password" class=" black input-2 pl-0p w-100 no-outline  bsbb  mt--3p p-10p fs-15p" placeholder="">
+						<span class="p-a r-0 t-0 mr-10p mt-12p ">
+										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<circle cx="10" cy="10" r="10" fill="#FF0000"/>
+											<path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"/>
+										</svg>
+										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<circle cx="10" cy="10" r="10" fill="#68D753"/>
+											<line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"/>
+											<line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"/>
+										</svg>
+									</span>
+									<small class="red verdana hide ml-5p">error mssg</small>
+					</div>
+				</div>
+				<div class="w-100 h-20p bsbb">
+					
+				</div>
+				<div class="buttons w-100 h-60p p-10p bsbb">
+					<button class="br-20p b-none bc-theme white center pl-10p pr-10p w-100 p-10p bsbb" type="submit">Login</button>
+				</div>
+			</form>
+		</div>
+		<div class="b-0 p-a w-100 h-60p l-0 center">
+			<font class="left white pt-5p fs-15p"><a href="../" class="td-none theme p-10p">back to home</a></font>
+		</div>
+	</div>
+</div>
+</body>
+</html>

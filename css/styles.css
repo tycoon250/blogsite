@@ -1,0 +1,22 @@
+@import 'styling.css';
+.parent.error input{
+	border-bottom: 1px solid red;
+}
+.parent.error textarea{
+	border-bottom: 1px solid red;
+}
+.parent.error .error-mssg{
+	color: red;
+}
+.parent.focus input{
+	border-bottom: 1px solid var(--main-color);
+}
+.parent.focus textarea{
+	border-bottom: 1px solid var(--main-color);
+}
+.parent.success input{
+	border-bottom: 1px solid var(--green);
+}
+.parent.success textarea{
+	border-bottom: 1px solid var(--green);
+}

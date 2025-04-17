@@ -1,0 +1,539 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "My API"
+host: "dd-drzb.onrender.com"
+basePath: "/api"
+schemes:
+  - "https"
+paths:
+  /hello:
+    get:
+      summary: "Get a greeting"
+      description: "Returns a greeting message."
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "A greeting message"
+          schema:
+            type: "object"
+            properties:
+              message:
+                type: "string"
+  /viewblogs:              
+    post:
+      summary: "view blogs"
+      description: "it will get all blogs at a time"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description : "A list of blogs"
+          schema:
+            type: "object"
+  /addblog:              
+    post:
+      summary: "view blogs"
+      description: "it will get all blogs at a time"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          schema:
+            type: "object"
+      parameters:
+        - in: "body"
+          name: "blog"
+          description: "Blog object that needs to be created."
+          required: true
+          schema:
+            $ref: "#/definitions/addblog"
+  /signup:              
+    post:
+      summary: "signup"
+      description: "it will register a new user"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          schema:
+            type: "object"
+      parameters:
+        - in: "body"
+          name: "adduser"
+          description: "User object that needs to be created."
+          required: true
+          schema:
+            $ref: "#/definitions/signup"
+  /login:              
+    post:
+      summary: "login"
+      description: "it will sign a user in"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          schema:
+            type: "object"
+      parameters:
+        - in: "body"
+          name: "login"
+          description: "User object that needs to be created."
+          required: true
+          schema:
+            $ref: "#/definitions/login"
+  /checkemail:              
+    post:
+      summary: "check email"
+      description: "it will check availability of an email"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          schema:
+            type: "object"
+      parameters:
+        - in: "body"
+          name: "checkemail"
+          required: true
+          schema:
+            $ref: "#/definitions/checkemail"
+  /deleteuser:              
+    post:
+      summary: "delete a user"
+      description: "it will delete an existing user"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          schema:
+            type: "object"
+      parameters:
+        - in: "body"
+          name: "deleteuser"
+          required: true
+          schema:
+            $ref: "#/definitions/deleteuser"
+  /addquery:              
+    post:
+      summary: "add a query"
+      description: "it will add query"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          schema:
+            type: "object"
+      parameters:
+        - in: "body"
+          name: "addquery"
+          required: true
+          schema:
+            $ref: "#/definitions/addquery"
+  /viewqueries:              
+    post:
+      summary: "view queries"
+      description: "it will view queries"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          schema:
+            type: "object"
+      parameters:
+        - in: "body"
+          name: "viewqueries"
+          required: true
+          schema:
+            $ref: "#/definitions/viewqueries"
+  /editquery:              
+    post:
+      summary: "edit queries"
+      description: "it will edit queries"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          schema:
+            type: "object"
+      parameters:
+        - in: "body"
+          name: "editquery"
+          required: true
+          schema:
+            $ref: "#/definitions/editquery"
+  /deletequery:              
+    post:
+      summary: "delete a query"
+      description: "it will delete queries"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          schema:
+            type: "object"
+      parameters:
+        - in: "body"
+          name: "deletequery"
+          required: true
+          schema:
+            $ref: "#/definitions/deletequery"
+  /deleteblog:              
+    post:
+      summary: "delete a blog"
+      description: "it will delete a blog"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          schema:
+            type: "object"
+      parameters:
+        - in: "body"
+          name: "deleteblog"
+          required: true
+          schema:
+            $ref: "#/definitions/deleteblog"
+  /editblog:              
+    post:
+      summary: "edit a blog"
+      description: "it will edit a blog"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          schema:
+            type: "object"
+      parameters:
+        - in: "body"
+          name: "editblog"
+          required: true
+          schema:
+            $ref: "#/definitions/editblog"
+  /addcomment:              
+    post:
+      summary: "add a comment"
+      description: "it will add a comment to a blog"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          schema:
+            type: "object"
+      parameters:
+        - in: "body"
+          name: "addcomment"
+          required: true
+          schema:
+            $ref: "#/definitions/addcomment"
+  /addlike:              
+    post:
+      summary: "add a like"
+      description: "it will like or dislike a blog"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          schema:
+            type: "object"
+      parameters:
+        - in: "body"
+          name: "addlike"
+          required: true
+          schema:
+            $ref: "#/definitions/addlike"
+  /deletecomment:              
+    post:
+      summary: "delete a comment"
+      description: "it will delete a comment"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          schema:
+            type: "object"
+      parameters:
+        - in: "body"
+          name: "deletecomment"
+          required: true
+          schema:
+            $ref: "#/definitions/deletecomment"
+  /adminlogin:              
+    post:
+      summary: "admin log in"
+      description: "it will sign an admin in"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          schema:
+            type: "object"
+      parameters:
+        - in: "body"
+          name: "adminlogin"
+          required: true
+          schema:
+            $ref: "#/definitions/adminlogin"
+  /addadmin:              
+    post:
+      summary: "admin register"
+      description: "it will register an admin"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          schema:
+            type: "object"
+      parameters:
+        - in: "body"
+          name: "addadmin"
+          required: true
+          schema:
+            $ref: "#/definitions/addadmin"
+
+definitions:
+  addblog:
+    type: "object"
+    required:
+      - "blog_type"
+      - "title"
+      - "description"
+      - "token"
+    properties:
+      blog_type:
+        type: "string"
+      title:
+        type: "string"
+      description:
+        type: "string"
+      token:
+        type: "string"
+  signup:
+    type: "object"
+    required:
+      - "firstname"
+      - "lastname"
+      - "email"
+      - "password"
+    properties:
+      firstname:
+        type: "string"
+      lastname:
+        type: "string"
+      email:
+        type: "string"
+      password:
+        type: "string"
+  login:
+    type: "object"
+    required:
+      - "email"
+      - "password"
+    properties:
+      email:
+        type: "string"
+      password:
+        type: "string"
+  checkemail:
+    type: "object"
+    required:
+      - "email"
+    properties:
+      email:
+        type: "string"
+  deleteuser:
+    type: "object"
+    required:
+      - "id"
+      - "token"
+    properties:
+      id:
+        type: "string"
+      token:
+        type: "string"
+  addquery:
+    type: "object"
+    required:
+      - "firstname"
+      - "lastname"
+      - "email"
+      - "subject"
+      - "message"
+    properties:
+      firstname:
+        type: "string"
+      lastname:
+        type: "string"
+      email:
+        type: "string"
+      subject:
+        type: "string"
+      message:
+        type: "string"
+  viewqueries:
+    type: "object"
+    required:
+      - "token"
+    properties:
+      token:
+        type: "string"
+  editquery:
+    type: "object"
+    required:
+      - "id"
+      - "firstname"
+      - "lastname"
+      - "email"
+      - "subject"
+      - "message"
+      - "token"
+    properties:
+      id:
+        type: "string"
+      firstname:
+        type: "string"
+      lastname:
+        type: "string"
+      email:
+        type: "string"
+      subject:
+        type: "string"
+      message:
+        type: "string"
+      token:
+        type: "string"
+  deletequery:
+    type: "object"
+    required:
+      - "id"
+      - "token"
+    properties:
+      id:
+        type: "string"
+      token:
+        type: "string"
+  deleteblog:
+    type: "object"
+    required:
+      - "blogid"
+      - "token"
+    properties:
+      blogid:
+        type: "string"
+      token:
+        type: "string"
+  editblog:
+    type: "object"
+    required:
+      - "id"
+      - "blog_type"
+      - "title"
+      - "description"
+      - "token"
+    properties:
+      id:
+        type: "string"
+      blog_type:
+        type: "string"
+      title:
+        type: "string"
+      description:
+        type: "string"
+      token:
+        type: "string"
+  addcomment:
+    type: "object"
+    required:
+      - "id"
+      - "data"
+      - "token"
+    properties:
+      id:
+        type: "string"
+      data:
+        type: "object"
+      token:
+        type: "string"
+  addlike:
+    type: "object"
+    required:
+      - "id"
+      - "data"
+      - "token"
+    properties:
+      id:
+        type: "string"
+      data:
+        type: "object"
+      token:
+        type: "string"
+  deletecomment:
+    type: "object"
+    required:
+      - "blogid"
+      - "commentid"
+      - "token"
+    properties:
+      blogid:
+        type: "string"
+      commentid:
+        type: "string"
+      token:
+        type: "string"
+  adminlogin:
+    type: "object"
+    required:
+      - "username"
+      - "password"
+    properties:
+      username:
+        type: "string"
+      password:
+        type: "string"
+  addadmin:
+    type: "object"
+    required:
+      - "username"
+      - "password"
+      - "email"
+    properties:
+      username:
+        type: "string"
+      password:
+        type: "string"
+      email:
+        type: "string"
+

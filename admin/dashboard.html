@@ -1,0 +1,775 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Admin | dashboard</title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="../css/styling.css">
+	<!-- <link rel="stylesheet" type="text/css" href="../css/responsive.css"> -->
+	<link data-default-icon="" data-badged-icon="" rel="shortcut icon" href="https">
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous"> -->
+	
+	<script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		let admin = localStorage.getItem('admin');
+		console.log('admin')
+		if (admin == null) {
+			window.location.href = './'
+		}
+	</script>
+	<script type="module" src="js/script.js" defer>
+		
+	</script>
+	<body class="bc-gray" id="body">
+		<div class="w-100 h-100 bsbb m-0 p-a" id="cont">
+			<div class="navigation  p-f w-100 h-70p zi-1000 bc-white theme" id="navbar">
+				<table class="w-100 mt-10p">
+					<tr>
+						<td class="w-75 p-4p ">
+							<div class="w-100 h-100  pl-10p left">
+								<li class="poppsins bold capitalize fs-20p linkSwitcher hover-2 ls-none" id="home">logo | blog dashboard</li>
+							</div>
+						</td>
+						<td width="w-20">
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="sidenav left w-270p bc-white p-f h-100 bsbb ovh theme">
+				<div class=" transparent w-90 h-80 p-15p bsbb ovys scroll-3 mt-90p">
+					<ul class="ls-none bc-gray verdana p-0 m-0 bsbb br-5p ovh us-none">
+						<li class=" bb-1-s-g m-0 w-100 titles hover-2 us-none bb-1-s-w ">
+							<div class="w-90 pt-15p pl-15p h-50p">
+								<span class=" pt-5p"><i class="fa fa-motorcycle theme"></i></span>
+								<font class="fs-15p theme">blogs</font>
+							</div>
+							<ul class="ls-none mt-10p bc-white w-100 p-r p-0 hidden b-1-s-g">
+								<li class="pl-15p pt-5p hover pt-10p pb-10p bb-1-s-g linkSwitcher hover-2 us-none" id="addblog">add a blog</li>
+								<li class="pl-15p pt-5p hover pt-10p pb-10p bb-1-s-g linkSwitcher hover-2 us-none" id="myblogs">my blogs</li>
+								<li class="pl-15p pt-5p hover pt-10p pb-10p  linkSwitcher hover-2 us-none" id="usersblogs">user blogs</li>  
+							</ul>
+						</li>
+						<li class=" m-0 w-100 titles hover-2 us-none bb-1-s-w">
+							<div class="w-100 w-90 pt-15p pl-15p h-50p bsbb">
+								<span><i class="fas fa-user theme"></i></span>
+								<font class="fs-15p theme">users</font>
+							</div>
+							<ul class="ls-none mt-10p bc-white w-100 p-r p-0 hidden b-1-s-g">
+								<li class="pt-5p pl-15p hover pt-10p pb-10p bb-1-s-g linkSwitcher hover-2 us-none" id="adduser">add a user</li>
+								<li class="pt-5p pl-15p hover pt-10p pb-10p linkSwitcher hover-2 us-none" id="users">view users</li>  
+							</ul>
+						</li>
+						<li class="m-0 w-100 linkSwitcher hover-2 us-none titles hover-2 us-none">
+							<div class="w-100 w-90 pt-15p pl-15p h-50p bsbb">
+								<span><i class="fas fa-user theme"></i></span>
+								<font class="fs-15p theme">queries</font>
+							</div>
+							<ul class="ls-none mt-10p bc-white w-100 p-r p-0 hidden b-1-s-g">
+								<li class="pt-5p pl-15p hover pt-10p pb-10p bb-1-s-g linkSwitcher hover-2 us-none" id="uqueries">unreaded queries</li>
+								<li class="pt-5p pl-15p hover pt-10p pb-10p  linkSwitcher hover-2 us-none" id="rqueries">seen queries</li>  
+							</ul>
+						</li>
+					</ul>
+					<ul class="ls-none bc-gray verdana p-0 mt-50p bsbb  br-5p">
+						<li class=" bb-1-s-g m-0 w-100 titles hover-2 us-none bb-1-s-w">
+							<div class="w-100 w-90 pt-15p pl-15p h-50p bsbb">
+								<span><i class="fas fa-user theme"></i></span>
+								<font class="fs-15p theme">skills</font>
+							</div>
+							<ul class="ls-none mt-10p bc-white w-100 p-r p-0 hidden b-1-s-g">
+								<li class="pt-5p pl-15p hover pt-10p pb-10p bb-1-s-g linkSwitcher hover-2 us-none" id="adduser">add a skill</li>
+								<li class="pt-5p pl-15p hover pt-10p pb-10p linkSwitcher hover-2 us-none" id="users">manage skills</li>  
+							</ul>
+						</li>
+						<li class=" bb-1-s-g m-0 w-100 titles hover-2 us-none bb-1-s-w">
+							<div class="w-100 w-90 pt-15p pl-15p h-50p bsbb">
+								<span><i class="fas fa-user theme"></i></span>
+								<font class="fs-15p theme">portifolio</font>
+							</div>
+							<ul class="ls-none mt-10p bc-white w-100 p-r p-0 hidden b-1-s-g">
+								<li class="pt-5p pl-15p hover pt-10p pb-10p bb-1-s-g linkSwitcher hover-2 us-none" id="adduser">add a portifolio</li>
+								<li class="pt-5p pl-15p hover pt-10p pb-10p linkSwitcher hover-2 us-none" id="users">manage portifolio</li>  
+							</ul>
+						</li>
+					</ul>
+					<ul class="ls-none bc-gray verdana p-0 mt-50p bsbb br-5p">
+						<li class=" pl-10p pr-10p bb-1-s-w m-0 w-100 linkSwitcher hover-2 us-none" id="log">
+							<div class="w-100 w-90 pt-15p pl-10p h-50p">
+								<span><i class="fa fa-newspaper theme"></i></span>
+								<font class="fs-15p theme">activity log</font>
+							</div>
+						</li>
+						<li class=" pl-10p pr-10p bb-1-s-w m-0 w-100 linkSwitcher hover-2 us-none" id="myaccount">
+							<div class="w-100 w-90 pt-15p pl-15p h-50p">
+								<span><i class="fa fa-space-shuttle theme"></i></span>
+								<font class="fs-15p theme">my account</font>
+							</div>
+						</li>
+						
+					</ul>
+					<ul class="ls-none bc-gray verdana p-0 mt-50p bsbb  br-5p">
+						<li class=" pl-10p pr-10p bb-1-s-g m-0 w-100 linkSwitcher hover-2 us-none" id="logout">
+							<div class="w-100 w-90 pt-15p pl-15p h-50p">
+								<span><i class="fa fa-space-shuttle theme"></i></span>
+								<font class="fs-15p theme">logout</font>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="content igrid bc-gray w-80 h-100 center right p-r">
+				<div class="w-90 h-80 cntr ovh br-5p bc-white mt-40p">
+					<!-- dashboard home section -->
+					<div class="bc-white  br-5p w-100 h-100 p-a ovh tr-0-3 pagecontentsection active" id="home">
+						<div class="w-100 h-50p bb-1-s-g">
+							<font class="theme capitalize left center bold fs-20p poppsins h-100 pl-10p">summary</font>
+						</div>
+						<div class="pg-cntnt w-100 h-a p-10p bsbb ovh left">
+							<div class="card-2 w-210p h-100p br-5p ovh zi-1000 p-r bc-theme igrid m-15p">
+								<div class="p-a mt--20p">
+									<font class="ovh mt--20p">
+										<i class="fas fa-user fs-150p rotate-20 tgray"></i>
+									</font>
+								</div>
+								<div class="w-100 h-100 p-r ovh">
+									<div class="left w-35 h-100 igrid">
+										<font class="fs-50p white center cardsc" id="users">0</font>
+									</div>
+									<div class="right w-65 left h-100 igrid">
+										<div class="content-ttl w-100 h-50p center p-r">
+											<font class="fs-19p white capitalize left center pr-5p p-a b-0">total users</font>
+										</div>
+										<div class="sub w-100 h-50p block">
+											<font class="fs-11p left p-5p white">see more  <i class="fas fa-arrow-right"></i></font>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-2 w-210p h-100p br-5p ovh zi-1000 p-r bc-theme igrid m-15p">
+								<div class="p-a mt--20p">
+									<font class="ovh mt--20p">
+										<i class="fas fa-user fs-150p rotate-20 tgray"></i>
+									</font>
+								</div>
+								<div class="w-100 h-100 p-r ovh">
+									<div class="left w-35 h-100 igrid">
+										<font class="fs-50p white center cardsc" id="nqueries">0</font>
+									</div>
+									<div class="right w-65 left h-100 igrid">
+										<div class="content-ttl w-100 h-50p center p-r">
+											<font class="fs-19p white capitalize left center pr-5p p-a b-0">new queries</font>
+										</div>
+										<div class="sub w-100 h-50p block">
+											<font class="fs-11p left p-5p white">see more  <i class="fas fa-arrow-right"></i></font>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-2 w-210p h-100p br-5p ovh zi-1000 p-r bc-theme igrid m-15p">
+								<div class="p-a mt--20p">
+									<font class="ovh mt--20p">
+										<i class="fas fa-user fs-150p rotate-20 tgray"></i>
+									</font>
+								</div>
+								<div class="w-100 h-100 p-r ovh">
+									<div class="left w-35 h-100 igrid">
+										<font class="fs-50p white center cardsc" id="skills">12</font>
+									</div>
+									<div class="right w-65 left h-100 igrid">
+										<div class="content-ttl w-100 h-50p center p-r">
+											<font class="fs-19p white capitalize left center pr-5p p-a b-0">total skills</font>
+										</div>
+										<div class="sub w-100 h-50p block">
+											<font class="fs-11p left p-5p white">see more  <i class="fas fa-arrow-right"></i></font>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-2 w-210p h-100p br-5p ovh zi-1000 p-r bc-theme igrid m-15p">
+								<div class="p-a mt--20p">
+									<font class="ovh mt--20p">
+										<i class="fab fa-blackberry fs-150p rotate-20 tgray"></i>
+									</font>
+								</div>
+								<div class="w-100 h-100 p-r ovh">
+									<div class="left w-35 h-100 igrid">
+										<font class="fs-50p white center cardsc" id="blogs">0</font>
+									</div>
+									<div class="right w-65 left h-100 igrid">
+										<div class="content-ttl w-100 h-50p center p-r">
+											<font class="fs-15p white capitalize left center pr-5p p-a b-0">total blogs</font>
+										</div>
+										<div class="sub w-100 h-50p block">
+											<font class="fs-11p left p-5p white">see more  <i class="fas fa-arrow-right"></i></font>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-2 w-210p h-100p br-5p ovh zi-1000 p-r bc-theme igrid m-15p">
+								<div class="p-a mt--20p">
+									<font class="ovh mt--20p">
+										<i class="fas fa-box-open fs-150p rotate-20 tgray"></i>
+									</font>
+								</div>
+								<div class="w-100 h-100 p-r ovh">
+									<div class="left w-35 h-100 igrid">
+										<font class="fs-50p white center cardsc" id="queries">0</font>
+									</div>
+									<div class="right w-65 left h-100 igrid">
+										<div class="content-ttl w-100 h-50p center p-r">
+											<font class="fs-19p white capitalize left center pr-5p p-a b-0 ">total queries</font>
+										</div>
+										<div class="sub w-100 h-50p block">
+											<font class="fs-11p left p-5p white">see more  <i class="fas fa-arrow-right"></i></font>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--end of dashboard home section -->
+					<!-- list of users section -->
+					<div class="bc-white  br-5p w-100 h-100 p-a ovh ml-100 tr-0-3 pagecontentsection" id="users">
+						<div class="w-100 h-50p bb-1-s-g">
+							<font class="theme capitalize left center bold fs-20p poppsins h-100 pl-10p">all users</font>
+						</div>
+						<div class="pg-cntnt w-100 h-100 p-20p bsbb ovh left">
+							<table class="w-100 h-a">
+								<tr class="">
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">#</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">First&nbsp;name</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">Last&nbsp;name</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">Email</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">action</span>
+									</td>
+								</tr>
+								<tr>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">1</span>
+									</td>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">peter</span>
+									</td>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">paul</span>
+									</td>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">peterpaul@gmail.com</span>
+									</td>
+									<td class="p-10p">
+										<span class="fs-14p verdana red center">delete</span>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<!-- end of list of users section -->
+
+					<!-- my blogs section -->
+					<div class="bc-white  br-5p w-100 h-100 p-a ovh ml-100 tr-0-3 pagecontentsection" id="myblogs">
+						<div class="w-100 h-50p bb-1-s-g">
+							<font class="theme capitalize left center bold fs-20p poppsins h-100 pl-10p">my blogs</font>
+						</div>
+						<div class="pg-cntnt w-100 h-100 p-20p bsbb ovh left">
+							<table class="w-100 h-a">
+								<tr class="">
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">#</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">Author name</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">email</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">title</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">description</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">action</span>
+									</td>
+								</tr>
+								<tr>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">1</span>
+									</td>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">peter pan</span>
+									</td>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">peterpan@gmail.com</span>
+									</td>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">visiting a museum</span>
+									</td>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">it was alright</span>
+									</td>
+									<td class="p-10p">
+										<span class="fs-14p verdana green left">edit</span>
+										<span class="fs-14p verdana red center">delete</span>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<!-- end of my blogs section -->
+					<!-- users blogs section -->
+					<div class="bc-white  br-5p w-100 h-100 p-a ovh ml-100 tr-0-3 pagecontentsection" id="usersblogs">
+						<div class="w-100 h-50p bb-1-s-g">
+							<font class="theme capitalize left center bold fs-20p poppsins h-100 pl-10p">user's blogs</font>
+						</div>
+						<div class="pg-cntnt w-100 h-100 p-20p bsbb ovh left">
+							<table class="w-100 h-a">
+								<tr class="">
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">#</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">Author name</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">email</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">title</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">description</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">action</span>
+									</td>
+								</tr>
+								<tr>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">1</span>
+									</td>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">peter pan</span>
+									</td>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">peterpan@gmail.com</span>
+									</td>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">visiting a museum</span>
+									</td>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">it was alright</span>
+									</td>
+									<td class="p-10p">
+										<span class="fs-14p verdana green left">edit</span>
+										<span class="fs-14p verdana red center">delete</span>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<!-- end of users blog section -->
+					<!-- add a blog section -->
+					<div class="bc-white  br-5p w-100 h-100 p-a ovh ml-100 tr-0-3 pagecontentsection" id="addblog">
+						<div class="w-100 h-50p bb-1-s-g">
+							<font class="theme capitalize left center bold fs-20p poppsins h-100 pl-10p">add a blog</font>
+						</div>
+						<div class="pg-cntnt w-100 h-90 p-10p bsbb left">
+							<div class="w-100 bsbb ovh p-10p">
+								<div class="form-holder w-100 h-100">
+									<form method="post" name="blog_form" class="p-10p bsbb adminform" id="blog-form">
+						              <div class="w-100 h-60p mt-10p mb-10p p-10p bsbb">
+						                <div class="p-r w-100 igrid mr-10p left parent p-r">
+						                  <input type="text" name="title" placeholder="Title" class="p-10p no-outline bsbb b-1-s-dgray bc-white">
+						                  <span class="p-a r-0 mt-10p mr-5p">
+						                    <svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+						                      <circle cx="10" cy="10" r="10" fill="#FF0000"/>
+						                      <path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"/>
+						                    </svg>
+						                    <svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+						                      <circle cx="10" cy="10" r="10" fill="#68D753"/>
+						                      <line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"/>
+						                      <line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"/>
+						                    </svg>
+						                  </span>
+						                  <small class="red verdana hide ml-5p">error mssg</small>
+						                </div>
+						              </div>
+						              <div class="w-100 h-150p mt-10p mb-10p p-10p bsbb">
+						                <div class="p-r w-40 igrid mr-10p left parent ovh h-100">
+						                  <div class="p-10p no-outline bsbb b-1-s-dgray bc-white w-100 mt-10p h-40p hover-2 dgray capitalize fs-14p">add image</div>
+						                  <input type="file" name="image" placeholder="Thumbnail" class="p-a mt-10p op-0 hover-2 h-40p w-100">
+						                  <span class="p-a r-0 mt-20p mr-5p w-20p h-20p zi-10000">
+						                    <svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+						                      <circle cx="10" cy="10" r="10" fill="#FF0000"/>
+						                      <path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"/>
+						                    </svg>
+						                    <svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+						                      <circle cx="10" cy="10" r="10" fill="#68D753"/>
+						                      <line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"/>
+						                      <line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"/>
+						                    </svg>
+						                  </span>
+						                  <small class="red verdana hide ml-5p">error mssg</small>
+						                </div>
+						                <div class="p-r w-40 igrid  right h-100 parent">
+						                  <div type="text" name="subject" class="no-outline previewpanel bsbb b-1-s-dgray bc-white w-100 h-150p mt--20p "><span class="w-100 h-100 p-10p center verdana dgray fs-13p capitalize">preview</span></div>
+						                </div>
+						              </div>
+						              <div class="w-100 h-60p mt-10p mb-10p p-10p bsbb">
+						                <div class="p-r w-100 igrid mr-10p left parent">
+						                  <textarea rows="4" cols="50" placeholder="description" name="description" class="p-10p no-outline desc bsbb b-1-s-dgray bc-white"></textarea>
+						                  <span class="p-a r-0 mt-10p mr-5p">
+						                    <svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+						                      <circle cx="10" cy="10" r="10" fill="#FF0000"/>
+						                      <path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"/>
+						                    </svg>
+						                    <svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+						                      <circle cx="10" cy="10" r="10" fill="#68D753"/>
+						                      <line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"/>
+						                      <line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"/>
+						                    </svg>
+						                  </span>
+						                  <small class="red verdana hide ml-5p">error mssg</small>
+						                </div>
+						              </div>
+						              <div class="w-a  h-60p mt-10p p-r right mb-10p p-10p bsbb">
+						                <div class="w-100 igrid">
+						                  <span class="center iblock">
+						                    <button class="bc-theme p-10p b-none w-150p">
+						                      <span class="verdana white fs-15p capitalize">post</span>
+						                    </button>
+						                  </span>
+						                </div>
+						              </div>
+						            </form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end of add a blog section -->
+					<!-- add a user section -->
+					<div class="bc-white  br-5p w-100 h-100 p-a ovh ml-100 tr-0-3 pagecontentsection" id="adduser">
+						<div class="w-100 h-50p bb-1-s-g">
+							<font class="theme capitalize left center bold fs-20p poppsins h-100 pl-10p">add a user</font>
+						</div>
+						<div class="pg-cntnt w-100 h-90 p-10p bsbb left center">
+							<div class="w-100 bsbb ovh p-10p">
+								<div class="form-holder w-100 h-100">
+									<form method="POST" action="" id="signup-form" name="signup-form">
+										<div class="f-content w-100 h-100">
+											<div class="1st w-100 h-a p-5p">
+												<div class="title black bb-1-s-g p-5p">
+													<font class="fs-20p bold capitalize">names</font>
+												</div>
+												<div class="w-45 parent mt-30p iblock p-r">
+													<font class="dgray p-a fs-13p label pi-none capitalize us-none zi-1000 ">First name</font>
+													<input type="text" id="title" name="firstname" class=" black input mt--3p w-100 no-outline pl-0p center bsbb  p-10p fs-15p p-r" placeholder="">	
+													<span class="p-a r-0 mt--25p mr-10p">
+														<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<circle cx="10" cy="10" r="10" fill="#FF0000"/>
+															<path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"/>
+														</svg>
+														<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<circle cx="10" cy="10" r="10" fill="#68D753"/>
+															<line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"/>
+															<line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"/>
+														</svg>
+													</span>
+													<small class="red verdana left hide ml-5p">error mssg</small>				
+												</div>
+												<div class="w-45 parent mt-30p ml-40p iblock p-r">
+													<font class="dgray p-a fs-15p label pi-none capitalize us-none zi-1000 ">last name</font>
+													<input type="text" name="lastname" id="lastname" class=" black input mt--3p w-100 no-outline pl-0p center bsbb  p-10p fs-15p p-r" placeholder="">
+													<span class="p-a r-0 mt--25p mr-10p">
+														<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<circle cx="10" cy="10" r="10" fill="#FF0000"/>
+															<path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"/>
+														</svg>
+														<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<circle cx="10" cy="10" r="10" fill="#68D753"/>
+															<line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"/>
+															<line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"/>
+														</svg>
+													</span>
+													<small class="red verdana left hide ml-5p">error mssg</small>				
+												</div>
+											</div>
+											<div class="1st w-100 h-a p-5p">
+												<div class="title black bb-1-s-g p-5p">
+													<font class="fs-20p bold capitalize verdana">addresses</font>
+												</div>
+												<div class="w-95 parent mt-20p iblock">
+													<font class="dgray p-a fs-15p label pi-none capitalize us-none zi-1000 ">email</font>
+													<input type="text" name="email" id="emailsignup" class=" black input mt--3p w-100 no-outline pl-0p center bsbb  p-10p fs-15p p-r" placeholder="">
+													<span class="p-a r-0 mt--25p mr-120p">
+														<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<circle cx="10" cy="10" r="10" fill="#FF0000"/>
+															<path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"/>
+														</svg>
+														<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<circle cx="10" cy="10" r="10" fill="#68D753"/>
+															<line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"/>
+															<line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"/>
+														</svg>
+													</span>
+													<small class="red verdana left hide ml-5p">error mssg</small>				
+												</div>
+											</div>
+											<div class="1st w-100 h-a p-5p">
+												<div class="title black bb-1-s-g p-5p">
+													<font class="fs-20p bold capitalize verdana">authentication</font>
+												</div>
+												<div class="w-100 parent mt-20p iblock">
+													<div class="w-50 bsbb igrid mr-10p left parent p-r">
+														<label class="dgray p-a fs-15p label pi-none us-none zi-1000 ">password</label>
+														<input type="text" name="password" placeholder="" class="  black input mt--3p w-100 no-outline pl-0p center bsbb  p-10p fs-15p p-r">
+														<span class="p-a r-0 mt-9p mr-10p">
+															<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<circle cx="10" cy="10" r="10" fill="#FF0000"/>
+																<path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"/>
+															</svg>
+															<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<circle cx="10" cy="10" r="10" fill="#68D753"/>
+																<line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"/>
+																<line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"/>
+															</svg>
+														</span>
+														<small class="red verdana hide ml-5p">error mssg</small>
+													</div>
+													<div class="p-r w-45 bsbb igrid parent">
+														<label class="dgray p-a fs-15p label pi-none us-none zi-1000">confirm password</label>
+														<input type="text" name="confirm" placeholder="" class=" black input mt--3p w-100 no-outline pl-0p center bsbb  p-10p fs-15p p-r">
+														<span class="p-a r-0 mt-9p mr-10p">
+															<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<circle cx="10" cy="10" r="10" fill="#FF0000"/>
+																<path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"/>
+															</svg>
+															<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<circle cx="10" cy="10" r="10" fill="#68D753"/>
+																<line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"/>
+																<line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"/>
+															</svg>
+														</span>
+														<small class="red verdana left hide ml-5p">error mssg</small>
+													</div>		
+												</div>
+												<div class="buttons w-100 h-250p mt-p p-10p bsbb ovh">
+													<div class="button-hol w-100 h-100">
+														<button type="submit" class="button bc-theme white p-15p right verdana center "><font class="fs-15p">add a user</font></button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- end of add a user section -->
+					<!-- view unreaded queries section -->
+					<div class="bc-white  br-5p w-100 h-100 p-a ovh ml-100 tr-0-3 pagecontentsection" id="uqueries">
+						<div class="w-100 h-50p bb-1-s-g">
+							<font class="theme capitalize left center bold fs-20p poppsins h-100 pl-10p">unreaded queries</font>
+						</div>
+						<div class="pg-cntnt w-100 h-100 p-20p bsbb ovh left">
+							<table class="w-100 h-a">
+								<tr class="">
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">#</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">contactor name</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">email</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">subject</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">message</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">action</span>
+									</td>
+								</tr>
+								<tr>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">1</span>
+									</td>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">peter pan</span>
+									</td>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">peterpan@gmail.com</span>
+									</td>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">i need to be hired</span>
+									</td>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">it was alright</span>
+									</td>
+									<td class="p-10p">
+										<span class="fs-14p verdana green left">view</span>
+										<span class="fs-14p verdana orange center">mark as seen</span>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<!-- end of unreaded queries section -->
+					<!-- manage readen queries section -->
+					<div class="bc-white  br-5p w-100 h-100 p-a ovh ml-100 tr-0-3 pagecontentsection" id="rqueries">
+						<div class="w-100 h-50p bb-1-s-g">
+							<font class="theme capitalize left center bold fs-20p poppsins h-100 pl-10p">seen queries</font>
+						</div>
+						<div class="pg-cntnt w-100 h-100 p-20p bsbb ovh left">
+							<table class="w-100 h-a">
+								<tr class="">
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">#</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">contactor name</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">email</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">subject</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">message</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">action</span>
+									</td>
+								</tr>
+								<tr>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">1</span>
+									</td>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">peter pan</span>
+									</td>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">peterpan@gmail.com</span>
+									</td>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">i need to be hired</span>
+									</td>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">it was alright</span>
+									</td>
+									<td class="p-10p">
+										<span class="fs-14p verdana green left">view</span>
+										<span class="fs-14p verdana red center">delete</span>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<!-- end of readen queries section -->
+					<!-- activity log section -->
+					<div class="bc-white  br-5p w-100 h-100 p-a ovh ml-100 tr-0-3 pagecontentsection" id="log">
+						<div class="w-100 h-50p bb-1-s-g">
+							<font class="theme capitalize left center bold fs-20p poppsins h-100 pl-10p">activity log</font>
+						</div>
+						<div class="pg-cntnt w-100 h-100 p-20p bsbb ovh left">
+							<div class="w-100 h-60p p-10p center bsbb mb-10p">
+								<form method="POST" action="">
+									<div class="w-100 h-60p p-10p bsbb flex">
+											<div class="w-200p bsbb  mr-10p left parent p-r">
+												<label class="capitalize fs-15p ">From:</label>
+												<input type="date" name="from" placeholder="" class=" no-outline bsbb b-1-s-dgray bc-white w-100 p-6p mt-10p">
+												<span class="p-a r-0 mt-40p mr-10p">
+													<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<circle cx="10" cy="10" r="10" fill="#FF0000"></circle>
+														<path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"></path>
+													</svg>
+													<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<circle cx="10" cy="10" r="10" fill="#68D753"></circle>
+														<line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"></line>
+														<line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"></line>
+													</svg>
+												</span>
+												<small class="red verdana hide ml-5p">error mssg</small>
+											</div>
+											<div class="p-r w-200p bsbb  parent">
+												<label class="capitalize fs-15p left">to:</label>
+												<input type="date" name="lastname" placeholder="" class="no-outline bsbb b-1-s-dgray bc-white w-100 p-6p mt-10p">
+												<span class="p-a r-0 mt-40p mr-10p">
+													<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<circle cx="10" cy="10" r="10" fill="#FF0000"></circle>
+														<path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"></path>
+													</svg>
+													<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<circle cx="10" cy="10" r="10" fill="#68D753"></circle>
+														<line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"></line>
+														<line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"></line>
+													</svg>
+												</span>
+												<small class="red verdana left hide ml-5p">error mssg</small>
+											</div>
+											<div class=" p-r p-10p w-100p block">
+												<label class="capitalize fs-15p left block">.</label>
+												<button class="p-7p bsbb bc-theme b-none w-100">
+													<span class="fs-14p white">generate</span>
+												</button>
+											</div>
+										</div>
+								</form>
+							</div>
+							<table class="w-100 h-a center" >
+								<tr class="">
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">#</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">activity type</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">attender</span>
+									</td>
+									<td class="p-10p bsbb bb-1-s-g">
+										<span class="fs-15p verdana p-10p">time</span>
+									</td>
+								</tr>
+								<tr>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">1</span>
+									</td>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">login</span>
+									</td>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">user</span>
+									</td>
+									<td class="p-10p bsbb">
+										<span class="fs-14p verdana">21-1-2022</span>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<!-- end of activity log section -->
+					
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>

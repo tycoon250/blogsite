@@ -1,20 +1,20 @@
 var input,textarea,dec,val,source,found,pattern,eml,v,passval,activepg,database,i,auser,functions
 sessionStorage.setItem('val',0)
-const socket = io('https://myblosite.onrender.com');
+// const socket = io('https://myblosite.onrender.com');
 
 // Listen for the 'connect' event
-socket.on('connect', () => {
-  console.log('Connected to the server');
-});
-let d = socket.emit('message', 'Hello, server!');
-if (d) {
-  console.log('Message sent successfully!');
-} else {
-  console.log('Failed to send message');
-}
-socket.on('acknowledge', (data) => {
-  console.log(`Received acknowledgement from server: ${data}`);
-});
+// socket.on('connect', () => {
+//   console.log('Connected to the server');
+// });
+// let d = socket.emit('message', 'Hello, server!');
+// if (d) {
+//   console.log('Message sent successfully!');
+// } else {
+//   console.log('Failed to send message');
+// }
+// socket.on('acknowledge', (data) => {
+//   console.log(`Received acknowledgement from server: ${data}`);
+// });
 export function validateForm(form,inputs,formdata) {
 
   val = 1;
@@ -540,53 +540,6 @@ export function closeTab(parent,element,divs) {
     div.classList.remove("blur");
   })
   body.classList.remove('ovh');
-}
-export function chngPgTLggdIn(user) {
-  var blogop = document.querySelector("div.blogop");
-  var addblogbutton = document.createElement("div");
-  if (user != null) {
-    var login_butt_hol = document.querySelector('li.login-butt-hol');
-    // change the navigation button
-    login_butt_hol.innerHTML = `<a href="" class="bc-black login-butt white td-none pt-7p pb-10p pl-15p pr-15p">logout</a>`;
-    document.querySelector('a.login-butt').addEventListener("click",e=>{
-        e.preventDefault();
-        localStorage.removeItem("user");
-        alertMessage("you have been successfully logged out !");
-        chngPgTLggdIn(null);
-        chkBlgCntnt();
-    })
-    //add an add blog button
-    blogop.appendChild(addblogbutton);
-    addblogbutton.className = "w-120p h-100 iblock right m-10p hover-2";
-    addblogbutton.innerHTML = `<span class="  fs-15p capitalize right black block  h-a bsbb p-5p  br-50 w-30p h-30p">
-              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 55 55" style="enable-background:new 0 0 55 55;" xml:space="preserve">
-                <g>
-                  <path d="M49,8.5v-8H0v47h7v7h48v-46H49z M2,45.5v-43h45v6H7v37H2z M53,52.5H9v-5v-37h40h4V52.5z"/>
-                  <path d="M42,30.5H32v-10c0-0.553-0.447-1-1-1s-1,0.447-1,1v10H20c-0.553,0-1,0.447-1,1s0.447,1,1,1h10v10c0,0.553,0.447,1,1,1   s1-0.447,1-1v-10h10c0.553,0,1-0.447,1-1S42.553,30.5,42,30.5z"/>
-                </g>
-              </svg>
-            </span>
-            <span class="  fs-15p capitalize left black h-a bsbb p-5p">
-              add yours
-            </span>`;
-    addblogbutton.addEventListener('click',e=>{
-      createAddBlogFrom();
-    })
-  }else{
-    // change the navigation button
-    var login_butt_hol = document.querySelector('li.login-butt-hol');
-    // change the navigation button
-    login_butt_hol.innerHTML = `<a href="#login" class="bc-theme white td-none pt-7p pb-10p pl-15p pr-15p">login</a>`;
-    // remove the add bolg button
-    blogop.innerHTML = `<div class="w-100p h-100 iblock  m-10p">
-            <span class="  fs-15p capitalize right black block h-a bsbb p-5p bc-gray  br-50 w-30p h-30p">
-              <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="w-20p h-20p"><g class="style-scope yt-icon"><path d="M15,17h6v1h-6V17z M11,17H3v1h8v2h1v-2v-1v-2h-1V17z M14,8h1V6V5V3h-1v2H3v1h11V8z M18,5v1h3V5H18z M6,14h1v-2v-1V9H6v2H3v1 h3V14z M10,12h11v-1H10V12z" class="style-scope yt-icon"></path></g></svg>
-            </span>
-            <span class="  fs-15p capitalize left black h-a bsbb p-5p">
-              latest
-            </span>
-          </div>`;
-  }
 }
 export function createAddBlogFrom() {
   

@@ -1,705 +1,354 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to my personal blog site! I am a developer sharing insights, tutorials, and experiences in the world of technology and programming. Explore my journey and learn more about my work and passions.">
+    <meta name="keywords" content="developer blog, programming tutorials, technology insights, coding experiences, software development, personal blog, tech blog, programming journey">
+    <meta property="og:image" content="/assets/img/icons/logo/logo.png">
+    <meta property="og:image:secure_url" content="/assets/img/icons/logo/logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <link rel="icon" type="image/x-icon" href="/images/logo-title.png" />
+    <link rel="stylesheet" type="text/css" href="/css/styling.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css" integrity="sha512-cn16Qw8mzTBKpu08X0fwhTSv02kK/FojjNLz0bwp2xJ4H+yalwzXKFw/5cLzuBZCxGWIA+95X4skzvo8STNtSg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spinkit/2.0.0/spinkit.min.css" integrity="sha512-kRYkjiYH/VXxoiaDK2oGNMKIi8VQVfie1lkYGX3kmfzWNR2kfaF5ze0885W3/eE6lIiURBsZA91M/WNvCajHMw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <title>H - Go Digital</title>
 </head>
-<link rel="stylesheet" type="text/css" href="css/styling.css">
-<link rel="stylesheet" type="text/css" href="css/styles.css">
-<link rel="stylesheet" type="text/css" href="css/responsive.css">
-
-<link data-default-icon="" data-badged-icon="" rel="shortcut icon">
-<script type="module" defer src="js/scripting.js"></script>
-<script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
-<body class="m-0 p-0" id="body">
-	<!-- container -->
-<div class="ovh w-100 h-100 p-r content">
-	<!-- navigation bar -->
-	<div class="w-100 h-80p p-5p bsbb p-f bc-white navigation zi-900">
-		<div class="logo w-80p h-100 iblock left pl-20p p-r">
-			<span class="verdana theme h-100 fs-20p bold center-2">H<sup>2</span>
-		</div>
-		<div class="w-50p h-100 center p-a t-0 r-0 hidden show-resp mr-10p">
-			<svg class="hover-2" viewBox="0 0 16 10" width="30px" height="30px" xmlns="http://www.w3.org/2000/svg" onclick="showmenu()"><title>Settings menu</title><path d="M0 1H16V0H0V1ZM0 9H16V8H0V9ZM0 4.99219H16V4H0V4.99219Z"></path></svg>
-		</div>
-		
-		<div class="w-70 bsbb p-5p h-100 right ovh hiddable">
-			<ul class="ls-none w-100 center-2 jc-sb m-0 bsbb h-100 ovh">
-				<li class="p-10p fs-15p verdana bsbb capitalize theme hover-2 us-none"><a href="#home" class="td-none theme">home</a></li>
-				<li class="p-10p fs-15p verdana bsbb capitalize"><a href="#about" class="td-none black">about&nbsp;me</a></li>
-				<li class="p-10p fs-15p verdana bsbb capitalize"><a href="#portifolio" class="td-none black">portifolio</a></li>
-				<li class="p-10p fs-15p verdana bsbb capitalize"><a href="#skills" class="td-none black">skills</a></li>
-				<li class="p-10p fs-15p verdana bsbb capitalize"><a href="#blog" class="td-none black">blog</a></li>
-				<li class="p-10p fs-15p verdana bsbb capitalize"><a href="#contact" class="td-none black">contact</a></li>
-			<li class="p-10p fs-14p verdana bsbb capitalize login-butt-hol"><a href="#login" class="bc-theme login-butt white td-none pt-7p pb-10p pl-15p pr-15p">login</a></li>
-			</ul>
-		</div>
-		<div class="w-100  center-2 h-a bc-white card-2 p-10p bsbb hidden themenu" id="themenu">
-			<ul class="ls-none w-100 m-0 bsbb h-100">
-				<li class="p-10p fs-15p verdana bsbb capitalize"><a href="#about" class="td-none black">about&nbsp;me</a></li>
-				<li class="p-10p fs-15p verdana bsbb capitalize"><a href="#portifolio" class="td-none black">portifolio</a></li>
-				<li class="p-10p fs-15p verdana bsbb capitalize"><a href="#skills" class="td-none black">skills</a></li>
-				<li class="p-10p fs-15p verdana bsbb capitalize"><a href="#blog" class="td-none black">blog</a></li>
-				<li class="p-10p fs-15p verdana bsbb capitalize"><a href="#contact" class="td-none black">contact</a></li>
-			<li class="p-10p fs-14p verdana bsbb capitalize login-butt-hol"><a href="#login" class="bc-theme login-butt white td-none pt-7p pb-10p pl-15p pr-15p">login</a></li>
-			</ul>
-		</div>
-		<script type="text/javascript">
-			function showmenu() {
-
-				console.log(themenu.classList)
-				if (themenu.classList.contains('hidden')) {
-					themenu.classList.remove('hidden')
-				}else{
-					themenu.classList.add('hidden')
-				}
-			}
-		</script>
-	</div>
-	<!-- end of navigation bar -->
-	<!-- home section -->
-	<div class="data-cont w-100 h-a mb-40p bsbb pt-80p ovh p-r h-700p-resp" id="home">
-		<div class="w-50 h-a p-40p bsbb igrid t-0 nop-resp mt-50p-resp addfull center">
-			<div class="text w-90  bsbb p-40p bsbb bb-1-s-dg nop-resp">
-				<span class="bold poppsins big-title fs-80p capitalize theme">
-					welcome.
-				</span>
-			</div>
-			<div class="block w-100 p-40p bsbb">
-				<span class="verdana black fs-15p white-resp">
-					I am HESHIMA Herbert i’m a software developer  and here you will experience  a full interacive exposition of my professional journey here please fell free to browse through the content of the website visit the blog. We welcome you to add your own article to your catalogue.
-				</span>
-			</div>
-			<div class="block buttons p-10p w-100">
+<body>
+   <div class='landing-container'>
+    <div class="container-fluid navigation-bar">
+        <nav class="navbar navbar-expand-lg navbar-light px-20">
+            <div class="d-flex justify-content-between align-items-center w-100 py-20p px-30p navBar">
+                <a class="navbar-brand" href="#home">
+                    <img src="/images/logo-nav.png" alt="logo" class="img-fluid" style="height: 50px; width: 150px;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto gap-lg-3 text-center">
+                        <li class="nav-item"><a class="nav-link fw-semibold py-2" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link fw-semibold py-2" href="#skills">Skills</a></li>
+                        <li class="nav-item"><a class="nav-link fw-semibold py-2" href="#why-section">Why Me</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link fw-semibold py-2" href="#blog">Blog</a></li> -->
+                        <li class="nav-item"><a class="nav-link fw-semibold py-2" href="#portifolio">Portifolio</a></li>
+                        <li class="nav-item mt-2 mt-lg-0">
+                            <a href="#contact" class="white px-20p py-6p td-none br-15p bsbb center w-100 bc-theme">Contact Me</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+    <section class="hero-section" id="home"> 
+        <div class="hero-background">
+            <div class="hero-image right">
+                <img src="/images/logo.png" alt="hero" class="w-70 h-100 hidden-resp">
+            </div>
+        </div>
+        <div class="container"> 
+            <div class="hero-content"> 
+                <h1 class="hero-title theme">Go Digital !</h1> 
+                <p class="hero-text fw-semibold">Crafting digital solutions that speak for themselves</p> 
+                <a href="#portifolio" class="btn-explore highlight-btn">View My Projects</a>
+            </div> 
+    </section>
+    
+    <section class="about-app" id="about">
+        <div class="container">
+            <div class="about-content align-items-center">
+                <div class="about-section">
+                    <div>
+                        <h2 class="section-title">About</h2>
+                        
+                        <div class="about-text">
+                            <p></p>
+                            <div class="w-40 h-a bfull-resp">
+                                <div class="w-100 h-100 bfull-resp">
+                                    <div class="w-100 h-a p-5p bsbb igrid t-0 bfull-resp">
+                                        <div class="text w-100  bsbb p-20p bsbb center">
+                                            <span class=" w-100 h-100p p-10p ovh p-r center">
+                                                <img src="images/logo.png" class="w-100p h-100p cover br-50 ">
+                                            </span>
+                                            <span class=" w-200p h-a ovh p-r center">
+                                                <span class="h-30p  block p-5p w-90 bb-1-s-dg">
+                                                    <span class="fs-18 p-10p bsbb  verdana">HESHIMA&nbsp;Herbert</span>
+                                                </span>
+                                                <span class="h-30p  block p-5p">
+                                                    <span class="fs-18 p-10p bsbb  dgray capitalize">website&nbsp;developer</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="block w-100 bsbb">
+                                            <span class="verdana black fs-15p center">
+                                                <table class="ls-none w-70 p-0 m-0 h-150p">
+                                                    <tbody><tr class="w-100">
+                                                        <td><span class="verdana bold fs-16p p-5p left iblock">EMAIL</span></td>
+                                                        <td><span class="fs-15 left iblock ">hesh.teo@gmail.com</span></td>
+                                                    </tr>
+                                                    <tr class="w-100">
+                                                        <td><span class="verdana bold fs-16p p-5p left iblock">PHONE:</span></td>
+                                                        <td><span class="fs-15 left iblock ">+250790861884</span></td>
+                                                    </tr>
+                                                    <tr class="w-100">
+                                                        <td><span class="verdana bold fs-16p p-5p left iblock">COUNTRY:</span></td>
+                                                        <td><span class="fs-15 left iblock ">Rwanda</span></td>
+                                                    </tr>
+                                                </tbody></table>
+                                            </span>
+                                        </div>
+                                        <div class="block buttons p-10p w-100 h-100p center p-r">
+                                            <ul class="ls-none center-2 p-0">
+                                                <li class="pt-0 pl-5p pr-5p center">
+                                                    <span class="icon #twitter-icon">
+                                                        <a href="https://www.facebook.com/people/heshima.herbert/" class="td-none theme fs-20p"><i class="bi bi-facebook"></i></a>
+                                                    </span>
+                                                </li>
+                                                <li class="pt-0 pl-5p pr-5p center">
+                                                   <span class="icon #instagram-icon">
+                                                    <a href="https://x.com/heshima.herbert" class="td-none theme fs-20p"><i class="bi bi-twitter"></i></a>
+                                                   </span>
+                                                </li>
+                                                <li class="pt-0 pl-5p pr-5p center">
+                                                    <span class="icon #linkedin-icon w-30p h-30p iblock">
+                                                        <a href="https://www.linkedin.com/company/heshima-herbert/" class="td-none theme fs-20p"><i class="bi bi-linkedin"></i></a>
+                                                    </span>
+                                                </li>
+                                                <li class="pt-0 pl-5p pr-5p center">
+                                                    <span class="icon #mail-icon w-30p h-30p iblock">
+                                                        <a href="https://www.instagram.com/_heshimaherbert" class="td-none theme fs-20p"><i class="bi bi-instagram"></i></a>
+                                                    </span>
+                                                </li>
+                                                
+                                                    
+                                                    
+                                                    
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="overview-container">
+                                <a href="#" class="b-1-s-theme theme py-10p px-15p bsbb br-10p td-none center-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                    Download CV
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-section">
+                    <div class="about-image">
+                        <span>
+                            
+                            Hey, I’m <b>HESHIMA Herbert.</b>
+                            <br>
+                            I’m genuinely excited to welcome you here this site is more than just a portfolio; it’s an open door into my world as a software developer.
+                            
+                            I built this platform to offer a dynamic, interactive experience a space where you can explore my skills, past projects, and everything I bring to the table. Think of it as a journey, and you’re invited to dive deep.
+                            
+                            I specialize in both front-end and back-end development, blending design and functionality to build systems that work beautifully. Software isn’t just a job for me it’s a passion, a craft, and something I’m fully committed to.
+                            
+                            Teamwork, precision, and relentless dedication define how I work. Every project I take on gets nothing less than my full focus and energy. If you're looking for someone who treats your goals like their own, you’re in the right place.
+                            
+                            Let’s create something exceptional together.
+                            Reach out. You won’t regret it.
 				
-				<span class="left iblock">
-					<a href="#portifolio" class="td-none white">
-						<button class="bc-dgray  hover-3 p-15p b-none hover-4 w-150p">
-							<span class="verdana white fs-16p capitalize black-resp">portifolio</span>
-						</button>
-					</a>
-				</span>
-				<span class="right iblock">
-					<a href="#about" class="td-none white">
-						<button class="bc-dgray hover-3 p-15p b-none hover-4 w-150p">
-							<span class="verdana white fs-16p capitalize black-resp">about me</span>
-						</button>
-					</a>
-				</span>
-			</div>
-		</div>
-		<div class="w-45 h-100 bsbb p-a r-0 p-20p igrid addfull bebackground bc-black-resp">
-			<div class="text w-90  bsbb bsbb p-r">
-				<span class="right w-80 h-90 br-5p p-r">
-					<img src="images/DSC_4681.jpg" class="w-100 h-100 cover op-0-5 card-4">
-				</span>
-			</div>
-		</div>
-	</div>
-	<!-- end of home section -->
-	<!-- about section -->
-	<div class="data-cont w-100 h-a mb-40p bsbb pt-80p ovh p-r flex bblock" id="about">
-		<div class="w-50 h-a p-5p bsbb igrid t-0 addfull">
-			<div class="text w-100  bsbb p-20p bsbb center">
-				<span class=" w-100 h-100p p-10p ovh p-r center">
-					<img src="images/DSC_4681.jpg" class="w-100p h-100p cover br-50 ">
-				</span>
-				<span class=" w-200p h-a ovh p-r center">
-					<span class="h-30p  block p-5p w-90 bb-1-s-dg">
-						<span class="fs-18 p-10p bsbb  verdana">HESHIMA&nbsp;Herbert</span>
-					</span>
-					<span class="h-30p  block p-5p">
-						<span class="fs-18 p-10p bsbb  dgray capitalize">website&nbsp;developer</span>
-					</span>
-				</span>
-			</div>
-			<div class="block w-100 bsbb">
-				<span class="verdana black fs-15p center">
-					<table class="ls-none w-70 p-0 m-0 h-150p">
-						<tr class="w-100">
-							<td ><span class="verdana bold fs-16p p-5p left iblock">EMAIL</span></td>
-							<td><span class="fs-15 left iblock ">hesh.teo@gmail.com</span></td>
-						</tr>
-						<tr class="w-100">
-							<td ><span class="verdana bold fs-16p p-5p left iblock">PHONE:</span></td>
-							<td><span class="fs-15 left iblock ">+250790861884</span></td>
-						</tr>
-						<tr class="w-100">
-							<td ><span class="verdana bold fs-16p p-5p left iblock">COUNTRY:</span></td>
-							<td><span class="fs-15 left iblock ">Rwanda</span></td>
-						</tr>
-					</table>
-				</span>
-			</div>
-			<div class="block buttons p-10p w-100 h-100p center p-r">
-				<ul class="ls-none center-2 pl-20p">
-                    <li class="pt-0 pl-5p pr-5p">
-                        <span class="icon #facebook-icon w-30p h-30p flex">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" class="hover-2" width="35px" height="30px" viewBox="0 0 24 24">
-                            <path d="M12 2.03998C6.5 2.03998 2 6.52998 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.84998C10.44 7.33998 11.93 5.95998 14.22 5.95998C15.31 5.95998 16.45 6.14998 16.45 6.14998V8.61998H15.19C13.95 8.61998 13.56 9.38998 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C15.9164 21.5878 18.0622 20.3855 19.6099 18.57C21.1576 16.7546 22.0054 14.4456 22 12.06C22 6.52998 17.5 2.03998 12 2.03998Z"/>
-                            </svg>
                         </span>
-                    </li>
-                    <li class="pt-0 pl-5p pr-5p">
-                        <span class="icon #twitter-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="hover-2" width="30px" height="30px" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 310 310" style="enable-background:new 0 0 310 310;" xml:space="preserve">
-                                <path d="M302.973,57.388c-4.87,2.16-9.877,3.983-14.993,5.463c6.057-6.85,10.675-14.91,13.494-23.73   c0.632-1.977-0.023-4.141-1.648-5.434c-1.623-1.294-3.878-1.449-5.665-0.39c-10.865,6.444-22.587,11.075-34.878,13.783   c-12.381-12.098-29.197-18.983-46.581-18.983c-36.695,0-66.549,29.853-66.549,66.547c0,2.89,0.183,5.764,0.545,8.598   C101.163,99.244,58.83,76.863,29.76,41.204c-1.036-1.271-2.632-1.956-4.266-1.825c-1.635,0.128-3.104,1.05-3.93,2.467   c-5.896,10.117-9.013,21.688-9.013,33.461c0,16.035,5.725,31.249,15.838,43.137c-3.075-1.065-6.059-2.396-8.907-3.977   c-1.529-0.851-3.395-0.838-4.914,0.033c-1.52,0.871-2.473,2.473-2.513,4.224c-0.007,0.295-0.007,0.59-0.007,0.889   c0,23.935,12.882,45.484,32.577,57.229c-1.692-0.169-3.383-0.414-5.063-0.735c-1.732-0.331-3.513,0.276-4.681,1.597   c-1.17,1.32-1.557,3.16-1.018,4.84c7.29,22.76,26.059,39.501,48.749,44.605c-18.819,11.787-40.34,17.961-62.932,17.961   c-4.714,0-9.455-0.277-14.095-0.826c-2.305-0.274-4.509,1.087-5.294,3.279c-0.785,2.193,0.047,4.638,2.008,5.895   c29.023,18.609,62.582,28.445,97.047,28.445c67.754,0,110.139-31.95,133.764-58.753c29.46-33.421,46.356-77.658,46.356-121.367   c0-1.826-0.028-3.67-0.084-5.508c11.623-8.757,21.63-19.355,29.773-31.536c1.237-1.85,1.103-4.295-0.33-5.998   C307.394,57.037,305.009,56.486,302.973,57.388z"/>
-                            </svg>
-                        </span>
-                    </li>
-                    <li class="pt-0 pl-5p pr-5p">
-                       <span class="icon #instagram-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg"class="hover-2" width="30px" height="30px" viewBox="0 0 24 24" fill="none">
-                                <path d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81V16.18C2 19.83 4.17 22 7.81 22H16.18C19.82 22 21.99 19.83 21.99 16.19V7.81C22 4.17 19.83 2 16.19 2ZM12 15.88C9.86 15.88 8.12 14.14 8.12 12C8.12 9.86 9.86 8.12 12 8.12C14.14 8.12 15.88 9.86 15.88 12C15.88 14.14 14.14 15.88 12 15.88ZM17.92 6.88C17.87 7 17.8 7.11 17.71 7.21C17.61 7.3 17.5 7.37 17.38 7.42C17.26 7.47 17.13 7.5 17 7.5C16.73 7.5 16.48 7.4 16.29 7.21C16.2 7.11 16.13 7 16.08 6.88C16.03 6.76 16 6.63 16 6.5C16 6.37 16.03 6.24 16.08 6.12C16.13 5.99 16.2 5.89 16.29 5.79C16.52 5.56 16.87 5.45 17.19 5.52C17.26 5.53 17.32 5.55 17.38 5.58C17.44 5.6 17.5 5.63 17.56 5.67C17.61 5.7 17.66 5.75 17.71 5.79C17.8 5.89 17.87 5.99 17.92 6.12C17.97 6.24 18 6.37 18 6.5C18 6.63 17.97 6.76 17.92 6.88Z" fill="#000"/>
-                            </svg>
-                       </span>
-                    </li>
-                    <li class="pt-0 pl-5p pr-5p">
-                        <span class="icon #linkedin-icon w-30p h-30p iblock mt--7p">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="hover-2" width="30px" height="30px" viewBox="0 0 24 24" fill="none">
-								<path d="M18.72 3.99997H5.37C5.19793 3.99191 5.02595 4.01786 4.86392 4.07635C4.70189 4.13484 4.55299 4.22471 4.42573 4.34081C4.29848 4.45692 4.19537 4.59699 4.12232 4.75299C4.04927 4.909 4.0077 5.07788 4 5.24997V18.63C4.01008 18.9901 4.15766 19.3328 4.41243 19.5875C4.6672 19.8423 5.00984 19.9899 5.37 20H18.72C19.0701 19.9844 19.4002 19.8322 19.6395 19.5761C19.8788 19.32 20.0082 18.9804 20 18.63V5.24997C20.0029 5.08247 19.9715 4.91616 19.9078 4.76122C19.8441 4.60629 19.7494 4.466 19.6295 4.34895C19.5097 4.23191 19.3672 4.14059 19.2108 4.08058C19.0544 4.02057 18.8874 3.99314 18.72 3.99997ZM9 17.34H6.67V10.21H9V17.34ZM7.89 9.12997C7.72741 9.13564 7.5654 9.10762 7.41416 9.04768C7.26291 8.98774 7.12569 8.89717 7.01113 8.78166C6.89656 8.66615 6.80711 8.5282 6.74841 8.37647C6.6897 8.22474 6.66301 8.06251 6.67 7.89997C6.66281 7.73567 6.69004 7.57169 6.74995 7.41854C6.80986 7.26538 6.90112 7.12644 7.01787 7.01063C7.13463 6.89481 7.2743 6.80468 7.42793 6.74602C7.58157 6.68735 7.74577 6.66145 7.91 6.66997C8.07259 6.66431 8.2346 6.69232 8.38584 6.75226C8.53709 6.8122 8.67431 6.90277 8.78887 7.01828C8.90344 7.13379 8.99289 7.27174 9.05159 7.42347C9.1103 7.5752 9.13699 7.73743 9.13 7.89997C9.13719 8.06427 9.10996 8.22825 9.05005 8.3814C8.99014 8.53456 8.89888 8.6735 8.78213 8.78931C8.66537 8.90513 8.5257 8.99526 8.37207 9.05392C8.21843 9.11259 8.05423 9.13849 7.89 9.12997ZM17.34 17.34H15V13.44C15 12.51 14.67 11.87 13.84 11.87C13.5822 11.8722 13.3313 11.9541 13.1219 12.1045C12.9124 12.2549 12.7546 12.4664 12.67 12.71C12.605 12.8926 12.5778 13.0865 12.59 13.28V17.34H10.29V10.21H12.59V11.21C12.7945 10.8343 13.0988 10.5225 13.4694 10.3089C13.84 10.0954 14.2624 9.98848 14.69 9.99997C16.2 9.99997 17.34 11 17.34 13.13V17.34Z" fill="#000000"/>
-							</svg>
-                        </span>
-                    </li>
-					<li class="pt-0 pl-5p pr-5p">
-                        <span class="icon #mail-icon w-30p h-30p iblock">
-                            <svg version="1.1" class="hover-2 w-25p h-25p mt-3p" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 58 58"  xml:space="preserve">
-								<g>
-									<path d="M50.466,43.995l6.483-3.242l-17.637-6.498l6.498,17.638l3.242-6.484l6.797,6.797c0.195,0.195,0.451,0.293,0.707,0.293
-										s0.512-0.098,0.707-0.293c0.391-0.391,0.391-1.023,0-1.414L50.466,43.995z M42.688,37.631l9.232,3.402l-3.887,1.943l-1.943,3.888
-										L42.688,37.631z"></path>
-									<path d="M57.995,6.477c-0.002-0.111-0.019-0.222-0.06-0.33c-0.003-0.007-0.008-0.012-0.01-0.019
-										c-0.011-0.027-0.029-0.049-0.042-0.075c-0.041-0.081-0.089-0.155-0.148-0.22c-0.026-0.029-0.054-0.052-0.083-0.078
-										c-0.062-0.054-0.129-0.099-0.202-0.136c-0.033-0.017-0.063-0.035-0.098-0.048C57.24,5.529,57.124,5.5,57,5.5H1
-										c-0.124,0-0.24,0.029-0.351,0.071C0.614,5.584,0.584,5.602,0.551,5.619C0.478,5.656,0.411,5.701,0.348,5.755
-										C0.319,5.781,0.292,5.804,0.266,5.833c-0.06,0.065-0.108,0.14-0.149,0.221C0.104,6.079,0.086,6.101,0.075,6.128
-										C0.072,6.134,0.067,6.14,0.064,6.146c-0.041,0.108-0.057,0.219-0.06,0.33C0.004,6.485,0,6.492,0,6.5v39
-										c0,0.003,0.002,0.006,0.002,0.009c0.001,0.107,0.017,0.214,0.053,0.319c0.004,0.012,0.013,0.022,0.018,0.034
-										c0.013,0.034,0.034,0.063,0.051,0.095c0.039,0.074,0.082,0.142,0.137,0.203c0.028,0.031,0.056,0.058,0.088,0.085
-										c0.06,0.053,0.126,0.096,0.197,0.133c0.034,0.018,0.066,0.037,0.102,0.051C0.759,46.471,0.876,46.5,1,46.5h35c0.553,0,1-0.447,1-1
-										s-0.447-1-1-1H3.879c4.548-3.604,14.801-11.781,20.069-16.403l1.421,1.255c1.002,0.894,2.317,1.341,3.633,1.341
-										c1.313,0,2.626-0.446,3.625-1.337L56,8.718V36.5c0,0.553,0.447,1,1,1s1-0.447,1-1v-30C58,6.492,57.996,6.485,57.995,6.477z
-										M2,43.437V8.718l20.437,18.046C16.881,31.617,6.086,40.204,2,43.437z M31.299,27.86c-1.267,1.132-3.331,1.132-4.602-0.004
-										l-1.979-1.747c-0.005-0.007-0.007-0.015-0.012-0.021c-0.022-0.025-0.053-0.035-0.077-0.058L3.644,7.5h50.713L31.299,27.86z"></path>
-								</g>
-							</svg>
-                        </span>
-                    </li>
-                </ul>
-			</div>
-		</div>
-		<div class="w-45 h-100 bsbb r-0 p-20p igrid addfull">
-			<div class="text w-100 br-10p  bsbb bsbb p-r ovh bc-gray">
-				<div class="center">
-					<span class="bold fs-20p capitalize center black block h-a p-20p bsbb">
-						hello.
-					</span>
-				</div>
-				<span class="verdana fs-15p left black block h-a p-20p bsbb">
-					My name is HESHIMA Herbert, I am really glad I get to tell you about myself and what I can offer professionally. 
-					I created this webpage page to offer an interactive experience through which a fun journey can be taken exploring my professional skills. I invite you to follow the rabbit hole down this website to have a deeper understanding of all I can bring to the table.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="key-features" id="skills">
+        <div class="features-container">
+            <div class="section-header">
+                <h2 class="feature-title">Skills and Technologies</h2>
+                <p class="feature-subtitle">Explore the diverse range of skills and technologies I utilize  to craft innovative and efficient digital solutions.</p>
+            </div>
+    
+            <div class='features-nav-container'>
+                <div class="features-nav">
+                    <button class="nav-btn active" data-target="grid">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="7" height="7" stroke="currentColor" stroke-width="2"></rect><rect x="14" y="3" width="7" height="7" stroke="currentColor" stroke-width="2"></rect><rect x="3" y="14" width="7" height="7" stroke="currentColor" stroke-width="2"></rect><rect x="14" y="14" width="7" height="7" stroke="currentColor" stroke-width="2"></rect>
+                        </svg>
+                    </button>
+                    
+                    <button class="nav-btn" data-target="carousel">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="7" width="6" height="10" stroke="currentColor" stroke-width="2"></rect><rect x="9" y="5" width="6" height="14" stroke="currentColor" stroke-width="2"></rect><rect x="16" y="7" width="6" height="10" stroke="currentColor" stroke-width="2"></rect><line x1="1" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+    
+            <div class="feature-contents" id="featuresContainer">
+            </div>
+            
+        </div>
+    
+        <div class="wave-bottom">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="#ffffff" fill-opacity="1" d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,85.3C672,75,768,85,864,112C960,139,1056,181,1152,186.7C1248,192,1344,160,1392,144L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+    
+    <div class="why-section-container" id='why-section'>
+        <h2 class="why-section-title">Why Me?</h2>
+        <p class="why-section-subtitle">I bring a unique blend of technical expertise, creativity, and dedication to every project. My goal is to craft digital solutions that not only meet your needs but exceed your expectations, ensuring a seamless and impactful experience.</p>
+        
+        <div class="why-section-contents" id="benefits-container">
+        </div>
+    </div>
 
-					So let me introduce myself, I am a software developer, focusing on front and back end design. It’s a field I am really passionate about and I count myself lucky to have found myself in this professional field. 
-					team work, attention to detail and hard work are aspects of my character as a professional that I deeply value , and I dedicate no less that a hundred percent of my attention to every project that I am invited to contribute to.
+    <section class="" id="portifolio">
+        <div class="features-container">
+            <div class="section-header">
+                <h2 class="feature-title">Projects and Creative Works</h2>
+                <p class="feature-subtitle">Dive into my portfolio to see the projects and creative works that showcase my expertise in delivering impactful digital solutions.</p>
+            </div>
+            <div class="p-10p bsbb" id="projectsContainer">
+            </div>
+            
+        </div>
+    
+        <div class="wave-bottom">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="#ffffff" fill-opacity="1" d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,85.3C672,75,768,85,864,112C960,139,1056,181,1152,186.7C1248,192,1344,160,1392,144L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+    <div class="testimonial-container" id='testimonials'>
+        <div class="testimonials-section-header">
+          <h2>Trusted by <span class="highlight">Leading Organizations</span></h2>
+          <p>Collaborating to create innovative digital solutions that empower communities and enhance lives</p>
+        </div>
+        
+        <hr>
+        <div class="partners-grid" id="partners-container">
+        </div>
+        <hr>    
+    </div>
+    
+    <div id='contact'>
+        <div class="block w-77 m-a bfull-resp">
+            <h2 class="cta-heading w-100 dgray">Ready to <span class="theme">elevate</span> your digital presence?</h2>
+        </div>
 
-					Get in touch with me and I promise you you won’t regret it. Can’t wait to see what we can do together.
-				</span>
-				<div class="block b-0 p-r w-100 h-100p bsbb p-a b-0 p-10p bsbb bc-gray">
-					<span class="center w-100 h-100">
-						<button class="bc-theme p-7p b-none br-5p w-150p">
-							<span class="verdana white fs-14p capitalize">download CV</span>
-						</button>
-					</span>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end of about section -->
-	<!-- portifolio section -->
-	<div class="data-cont w-100 h-100 mb-40p bsbb p-20p ovh p-r" id="portifolio">
-		
-		<div class="w-100 h-100 bsbb p-20p ">
-				<div class="center h-100p">
-					<span class="bold fs-30p capitalize center black block h-a bsbb">
-						portifolio.
-					</span>
-				</div>
-			<div class="text w-100 h-a p-10p bsbb br-10p bsbb p-r ovh bc-gray mt-20p">
-				<div class="title w-100 p-10p">
-					<span class="capitalize fs-18p">
-						Website developer
-					</span>
-					<span class="capitalize fs-17p dgray block">
-						ITZONE Plus.
-					</span>
-				</div>
-				<span class="verdana fs-15p left black block h-a  bsbb w-70 pl-20p igrid">
-					Design website front-end and develop back-end  using various tools like Node.js and SQL for back-end development javascript,HTML and CSS for front-end even also css and javacript to ensure mobility of the web app  diligently in teams to timely assess progress on ongoing projects.
-					Collaborate closely with project managers to deliver required tasks on schedule
-				</span>
-				<span class="verdana fs-15p mr-20p w-100p h-100p black block h-a pr-15p ovh br-10p p-0 mt--30p right bsbb w-a igrid">
-					<img src="images/favicon.png" class="w-100 h-100 cover">
-				</span>
-			</div>
-		</div>
-	</div>
-	<!-- end of portifolio section -->
-	<!-- skills section -->
-	<div class="data-cont w-100 h-100 mb-40p bsbb pt-80p ovh p-r" id="skills">
-		
-		<div class="w-100 h-100 bsbb p-20p ">
-				<div class="center h-100p">
-					<span class="bold fs-30p capitalize center black block h-a bsbb">
-						skills.
-					</span>
-				</div>
-			<div class="skill w-300p h-200p br-10p bsbb p-r ovh m-20p p-5p bsbb bc-gray igrid">
-				<span class="verdana fs-15p left black block h-a  bsbb w-100 igrid">
-					<div class="w-100 h-40p p-10p bsbb p">
-						<span class="center fs-17p bc-dgray capitalize p-5p bsbb br-5p">scripting languages</span>
-					</div>
-					<ul class="h-100">
-						<li class="p-10p h-40p">
-							<span class="fs-14p capitalize left w-a">javaScript</span>
-							<span class="fs-14p capitalize right w-a">
-								<svg class="w-40p h-40p" viewBox="0 0 68 66" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-									<rect width="68" height="66" rx="2" fill="#F0DB4F"/>
-									<rect x="6" y="3" width="56" height="60" rx="2" fill="url(#pattern0)"/>
-									<defs>
-										<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-											<use xlink:href="#image0_71_2" transform="translate(-0.116438) scale(0.00733855 0.00684932)"/>
-										</pattern>
-										<image id="image0_71_2" width="168" height="146" xlink:href="data:image/png;base64,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"/>
-									</defs>
-								</svg>
-							</span>
-						</li>
-						<li class="p-10p h-40p">
-							<span class="fs-14p capitalize left w-a">PHP</span>
-							<span class="fs-14p capitalize right w-a">
-								<img src="images/phplogo.png" class="w-50p h-30p">
-							</span>
-						</li>
-					</ul>
-				</span>
-			</div>
-			<div class="skill w-300p h-200p br-10p bsbb p-r ovh m-20p p-5p bsbb bc-gray igrid">
-				<span class="verdana fs-15p left black block h-a  bsbb w-100 igrid">
-					<div class="w-100 h-40p p-10p bsbb p">
-						<span class="center fs-17p bc-dgray capitalize p-5p bsbb br-5p">programming languages</span>
-					</div>
-					<ul class="h-100 ls-none">
-						<li class="p-10p h-40p">
-							<span class="fs-14p capitalize left w-a igrid h-100 center">C++</span>
-							<span class="fs-14p capitalize right w-a igrid h-100">
-								<img src="images/ISO_C++_Logo.svg.png" class="w-40p h-40p">
-							</span>
-						</li>
-					</ul>
-				</span>
-			</div>
-			<div class="skill w-300p h-200p br-10p bsbb p-r ovh m-20p p-5p bsbb bc-gray igrid">
-				<span class="verdana fs-15p left black block h-a bsbb w-100 igrid">
-					<div class="w-100 h-40p p-10p bsbb p">
-						<span class="center fs-17p bc-dgray capitalize p-5p bsbb br-5p">markup &  stylesheets</span>
-					</div>
-					<ul class="h-100 ls-none">
-						<li class="p-10p h-40p">
-							<span class="fs-14p capitalize left w-a h-100 center">HTML</span>
-							<span class="fs-14p capitalize right w-a">
-								<img src="images/html-logo-transparent -1-ms-rauwbnhxib.webp" class="w-50p h-50p">
-							</span>
-						</li>
-						<li class="p-10p h-40p">
-							<span class="fs-14p capitalize left w-a h-100 center">CSS</span>
-							<span class="fs-14p capitalize right w-a h-100 mr-10p">
-								<img src="images/1452px-CSS3_logo_and_wordmark.svg.png" class="w-30p h-40p">
-							</span>
-						</li>
-					</ul>
-				</span>
-			</div>
-		</div>
-	</div>
-	<!-- end of skills section -->
-	<!-- blog section -->
-	<div class="data-cont w-100 h-100 mt-20p mb-40p bsbb pt-60p p-r" id="blog">
-		<div class="w-100 h-100 bsbb p-20p ">
-				<div class=" h-60p mb-10p blogop">
-					<div class="w-100p h-100 iblock  m-10p">
-						<span class="  fs-15p capitalize right black block h-a bsbb p-5p bc-gray  br-50 w-30p h-30p">
-							<svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" class="w-20p h-20p"><g class="style-scope yt-icon"><path d="M15,17h6v1h-6V17z M11,17H3v1h8v2h1v-2v-1v-2h-1V17z M14,8h1V6V5V3h-1v2H3v1h11V8z M18,5v1h3V5H18z M6,14h1v-2v-1V9H6v2H3v1 h3V14z M10,12h11v-1H10V12z" class="style-scope yt-icon"></path></g></svg>
-						</span>
-						<span class="  fs-15p capitalize left black h-a bsbb p-5p">
-							latest
-						</span>
-					</div>
-				</div>
-			<div class="blogsholder w-100 h-100 p-5pp ml-60p">
-				<div class="text w-300p h-450p bsbb p-r ovh bsbb bc-white b-1-s-dgray m-15p igrid">
-					<div class="w-100 h-200p p-10p bc-dgray iblock"></div>
-					<div class="w-100 h-30p p-10p bsbb"><div class="w-90 h-20p fs-17p  bc-gray br-5p bold verdana capitalize"></div></div>
-					<span class=" fs-15p left black h-a bsbb w-100 right p-20p">
-							<div class="fs-14p capitalize w-100 h-120p ovys left scroll-3">
-									<div class="w-80 h-10p block m-10p bsbb bc-gray br-5p"></div>
-									<div class="w-60 h-10p block m-10p bsbb bc-gray br-5p"></div>
-									<div class="w-70 h-10p block m-10p bsbb bc-gray br-5p"></div>
-									<div class="w-80 h-10p block m-10p bsbb bc-gray br-5p"></div>
-							</div>
-							<div class=" h-40p mt-5p w-100 p-5p bsbb block">
-								<div class="w-50p h-20p right hover-2 center-2 br-5p bc-gray p-10p bsbb">
-								</div>
-							</div>
-						</span>
-				</div>
-				<div class="text w-300p h-450p bsbb p-r ovh bsbb bc-white b-1-s-dgray m-15p igrid">
-					<div class="w-100 h-200p p-10p bc-dgray iblock"></div>
-					<div class="w-100 h-30p p-10p bsbb"><div class="w-90 h-20p fs-17p  bc-gray br-5p bold verdana capitalize"></div></div>
-					<span class=" fs-15p left black h-a bsbb w-100 right p-20p">
-							<div class="fs-14p capitalize w-100 h-120p ovys left scroll-3">
-									<div class="w-80 h-10p block m-10p bsbb bc-gray br-5p"></div>
-									<div class="w-60 h-10p block m-10p bsbb bc-gray br-5p"></div>
-									<div class="w-70 h-10p block m-10p bsbb bc-gray br-5p"></div>
-									<div class="w-80 h-10p block m-10p bsbb bc-gray br-5p"></div>
-							</div>
-							<div class=" h-40p mt-5p w-100 p-5p bsbb block">
-								<div class="w-50p h-20p right hover-2 center-2 br-5p bc-gray p-10p bsbb">
-								</div>
-							</div>
-						</span>
-				</div>
-				<div class="text w-300p h-450p bsbb p-r ovh bsbb bc-white b-1-s-dgray m-15p igrid">
-					<div class="w-100 h-200p p-10p bc-dgray iblock"></div>
-					<div class="w-100 h-30p p-10p bsbb"><div class="w-90 h-20p fs-17p  bc-gray br-5p bold verdana capitalize"></div></div>
-					<span class=" fs-15p left black h-a bsbb w-100 right p-20p">
-							<div class="fs-14p capitalize w-100 h-120p ovys left scroll-3">
-									<div class="w-80 h-10p block m-10p bsbb bc-gray br-5p"></div>
-									<div class="w-60 h-10p block m-10p bsbb bc-gray br-5p"></div>
-									<div class="w-70 h-10p block m-10p bsbb bc-gray br-5p"></div>
-									<div class="w-80 h-10p block m-10p bsbb bc-gray br-5p"></div>
-							</div>
-							<div class=" h-40p mt-5p w-100 p-5p bsbb block">
-								<div class="w-50p h-20p right hover-2 center-2 br-5p bc-gray p-10p bsbb">
-								</div>
-							</div>
-						</span>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end of blog section -->
-	<!-- contact section -->
-	<div class="data-cont w-100 h-600p mt-20p mb-100p bsbb pt-100p  p-r" id="contact">
-		<div class="w-100 h-60p"><h1 class="center capitalize">contact me</h1></div>
-		<div class="w-45 h-a p-40p bsbb igrid t-0 hiddable">
-			<div class="text w-90  bsbb p-20p bsbb">
-				<span class="bold poppsins big-title fs-50p capitalize theme" style="text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
-					get&nbsp;in&nbsp;touch.
-				</span>
-			</div>
-			<div class="block w-70  ml-40p bsbb">
-				<span class="verdana black fs-25p" style="text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
-					or leave me a message and I’ll get back to you as soon as possible.
-				</span>
-			</div>
-			<div class="block buttons p-10p w-100">
-				<ul class="left iblock ls-none">
-					<li class=" b-none grid p-5p">
-						<span class="verdana theme fs-20p capitalize" style="text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">phone:</span>
-						<span class="verdana black mt-5p fs-17p capitalize" style="text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">+250788646692</span>
-					</li>
-					<li class=" b-none grid p-5p">
-						<span class="verdana theme fs-20p capitalize" style="text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">email:</span>
-						<span class="verdana black mt-5p fs-17p " style="text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">hesh.teo@gmail.com</span>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div class="w-50 h-100 p-a bsbb p-r r-0 p-20p igrid addfull">
-			<div class="text w-100 h-450p bsbb bsbb p-r center">
-				<span class="right w-450p h-450p  p-r">
-					<div class="w-450p h-450p p-10p card-2 bsbb">
-						<form method="post" name="contact_form" onsubmit="function f(e) {e.preventDefault();}" class="p-10p bsbb" id="contact-form">
-							<div class="w-100 h-60p mt-10p mb-10p p-10p bsbb">
-								<div class="w-45 igrid mr-10p left parent p-r">
-									<input type="text" name="firstname" placeholder="First Name" class="p-10p no-outline bsbb b-1-s-dgray bc-white w-100">
-									<span class="p-a r-0 mt-10p mr-5p">
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#FF0000"/>
-											<path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"/>
-										</svg>
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#68D753"/>
-											<line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"/>
-											<line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"/>
-										</svg>
-									</span>
-									<small class="red verdana hide ml-5p">error mssg</small>
-								</div>
-								<div class="p-r w-50 igrid parent">
-									<input type="text" name="lastname" placeholder="Last Name" class="p-10p no-outline bsbb b-1-s-dgray bc-white w-100">
-									<span class="p-a r-0 mt-10p mr-5p">
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#FF0000"/>
-											<path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"/>
-										</svg>
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#68D753"/>
-											<line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"/>
-											<line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"/>
-										</svg>
-									</span>
-									<small class="red verdana left hide ml-5p">error mssg</small>
-								</div>
-							</div>
-							<div class="w-100 h-60p mt-10p mb-10p p-10p bsbb">
-								<div class="p-r w-100 igrid mr-10p left parent p-r">
-									<input type="text" name="email" placeholder="Email" class="p-10p no-outline bsbb b-1-s-dgray bc-white">
-									<span class="p-a r-0 mt-10p mr-5p">
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#FF0000"/>
-											<path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"/>
-										</svg>
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#68D753"/>
-											<line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"/>
-											<line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"/>
-										</svg>
-									</span>
-									<small class="red verdana hide ml-5p">error mssg</small>
-								</div>
-							</div>
-							<div class="w-100 h-60p mt-10p mb-10p p-10p bsbb">
-								<div class="p-r w-100 igrid mr-10p left parent">
-									<input type="text" name="subject" placeholder="Subject" class="p-10p no-outline bsbb b-1-s-dgray bc-white">
-									<span class="p-a r-0 mt-10p mr-5p">
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#FF0000"/>
-											<path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"/>
-										</svg>
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#68D753"/>
-											<line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"/>
-											<line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"/>
-										</svg>
-									</span>
-									<small class="red verdana hide ml-5p">error mssg</small>
-								</div>
-							</div>
-							<div class="w-100 h-60p mt-10p mb-10p p-10p bsbb">
-								<div class="p-r w-100 igrid mr-10p left parent">
-									<textarea rows="4" cols="50" placeholder="Message" name="message" class="p-10p no-outline bsbb b-1-s-dgray bc-white"></textarea>
-									<span class="p-a r-0 mt-10p mr-5p">
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#FF0000"/>
-											<path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"/>
-										</svg>
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#68D753"/>
-											<line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"/>
-											<line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"/>
-										</svg>
-									</span>
-									<small class="red verdana hide ml-5p">error mssg</small>
-								</div>
-							</div>
-							<div class="w-a  h-60p mt-10p p-r right mb-10p p-10p bsbb">
-								<div class="w-100 igrid">
-									<span class="center iblock">
-										<button class="bc-theme p-10p b-none w-150p">
-											<span class="verdana white fs-15p capitalize">send message</span>
-										</button>
-									</span>
-								</div>
-							</div>
-						</form>
-					</div>
-				</span>
-			</div>
-		</div>
-	</div>
-	<!-- end of contact section -->
-	<!-- login and signup section -->
-	<div class="data-cont w-100 h-600p mb-100p bsbb p-60p ovh flex" id="login">
-		<div class="w-100 h-60p p-a"><h1 class="center capitalize">login & register</h1></div>
-		<div class="w-45 h-400p p-40p bsbb igrid hiddable mt-40p">
-			<div class="text w-90  bsbb p-20p bsbb">
-				<span class="bold poppsins big-title fs-50p capitalize theme" style="text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
-					welcome&nbsp;back!
-				</span>
-			</div>
-			<div class="block w-60  ml-40p bsbb">
-				<span class="verdana black fs-25p" style="text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)">
-					log into your account. Get a personal access to the content of the website, and together let’s create something special.
-				</span>
-			</div>
-		</div>
-		<div class="w-50 h-100 p-r bsbb mt-100p p-r r-0 p-20p igrid addfull">
-			<div class="text w-100  bsbb bsbb p-r  ">
-				<span class="right w-400p h-450p card-2 p-r ovh">
-					<div class="w-100 h-100 p-10p bsbb  igrid m-0 user-form  tr-0-8">
-						<form method="post" name="login-form" onsubmit="function f(e) {e.preventDefault();}" class="p-10p bsbb" id="login-form">
-							<div class="w-100 h-60p mt-30p mb-10p p-10p bsbb">
-								<div class="w-100 igrid mr-10p left parent p-r">
-									<label class="capitalize fs-15p ">email</label>
-									<input type="email" name="email" placeholder="" class="p-15p no-outline bsbb b-1-s-dgray bc-white mt-10p">
-									<span class="p-a r-0 mt-40p mr-10p">
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#FF0000"/>
-											<path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"/>
-										</svg>
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#68D753"/>
-											<line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"/>
-											<line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"/>
-										</svg>
-									</span>
-									<small class="red verdana hide ml-5p">error mssg</small>
-								</div>
-							</div>
-							<div class="w-100 h-60p mt-30p mb-10p p-10p bsbb">
-								<div class="w-100 igrid mr-10p left parent p-r">
-									<label class="capitalize fs-15p ">password</label>
-									<input type="password" name="password" placeholder="" class="p-15p no-outline bsbb b-1-s-dgray bc-white mt-10p">
-									<span class="p-a r-0 mt-40p mr-10p">
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#FF0000"/>
-											<path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"/>
-										</svg>
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#68D753"/>
-											<line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"/>
-											<line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"/>
-										</svg>
-									</span>
-									<small class="red verdana hide ml-5p">error mssg</small>
-								</div>
-							</div>
-							
-							<div class="w-100  h-60p mt-60p p-r right mb-10p p-10p bsbb">
-								<div class="w-100 h-100">
-									<span class="iblock left h-100">
-											<span class="verdana black h-100 fs-13p center capitalize">not yet a member<a href="signup" id="signup" class="td-none theme switch-link">signup</a></span>
-									</span>
-									<span class="iblock right h-100">
-										<button class="bc-theme p-10p b-none w-100p">
-											<span class="verdana white fs-15p capitalize">login</span>
-										</button>
-									</span>
-								</div>
-							</div>
-						</form>
-					</div>
-					<div class="w-100 h-100 p-10p bsbb bc-trgray igrid m-0 user-form  p-a t-0 tr-0-8">
-						<form method="post" name="signup-form" onsubmit="function f(e) {e.preventDefault();}" class="p-10p bsbb" id="signup-form">
-							<div class="w-100 h-60p mt-30p mb-10p p-10p bsbb">
-								<div class="w-50 bsbb igrid mr-10p left parent p-r">
-									<label class="capitalize fs-15p ">first name</label>
-									<input type="text" name="firstname" placeholder="" class=" no-outline bsbb b-1-s-dgray bc-white w-100 p-15p mt-10p">
-									<span class="p-a r-0 mt-40p mr-10p">
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#FF0000"/>
-											<path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"/>
-										</svg>
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#68D753"/>
-											<line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"/>
-											<line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"/>
-										</svg>
-									</span>
-									<small class="red verdana hide ml-5p">error mssg</small>
-								</div>
-								<div class="p-r w-45 bsbb igrid parent">
-									<label class="capitalize fs-15p left">last name</label>
-									<input type="text" name="lastname" placeholder="" class="no-outline bsbb b-1-s-dgray bc-white w-100 p-15p mt-10p">
-									<span class="p-a r-0 mt-40p mr-10p">
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#FF0000"/>
-											<path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"/>
-										</svg>
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#68D753"/>
-											<line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"/>
-											<line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"/>
-										</svg>
-									</span>
-									<small class="red verdana left hide ml-5p">error mssg</small>
-								</div>
-							</div>
-							<div class="w-100 h-60p mt-30p mb-10p p-10p bsbb">
-								<div class="w-100 igrid mr-10p left parent p-r">
-									<label class="capitalize fs-15p ">email</label>
-									<input type="text" name="email" placeholder="" class="p-15p no-outline bsbb b-1-s-dgray bc-white mt-10p" id="emailsignup">
-									<span class="p-a r-0 mt-40p mr-10p">
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#FF0000"/>
-											<path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"/>
-										</svg>
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#68D753"/>
-											<line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"/>
-											<line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"/>
-										</svg>
-									</span>
-									<small class="red verdana left hide ml-5p">error mssg</small>
-
-								</div>
-							</div>
-							<div class="w-100 h-60p mt-30p mb-10p p-10p bsbb">
-								<div class="w-50 bsbb igrid mr-10p left parent p-r">
-									<label class="capitalize fs-15p ">password</label>
-									<input type="text" name="password" placeholder="" class=" no-outline bsbb b-1-s-dgray bc-white w-100 p-15p mt-10p">
-									<span class="p-a r-0 mt-40p mr-10p">
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#FF0000"/>
-											<path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"/>
-										</svg>
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#68D753"/>
-											<line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"/>
-											<line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"/>
-										</svg>
-									</span>
-									<small class="red verdana hide ml-5p">error mssg</small>
-								</div>
-								<div class="p-r w-45 bsbb igrid parent">
-									<label class="capitalize fs-15p left">confirm password</label>
-									<input type="text" name="confirm" placeholder="" class="no-outline bsbb b-1-s-dgray bc-white w-100 p-15p mt-10p">
-									<span class="p-a r-0 mt-40p mr-10p">
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#FF0000"/>
-											<path d="M11.0717 5.27273L10.8757 11.3281H9.12429L8.92827 5.27273H11.0717ZM9.99787 14.1236C9.69389 14.1236 9.43253 14.0156 9.21378 13.7997C8.99787 13.5838 8.88991 13.3224 8.88991 13.0156C8.88991 12.7145 8.99787 12.4574 9.21378 12.2443C9.43253 12.0284 9.69389 11.9205 9.99787 11.9205C10.2905 11.9205 10.5476 12.0284 10.7692 12.2443C10.9936 12.4574 11.1058 12.7145 11.1058 13.0156C11.1058 13.2202 11.0533 13.4062 10.9482 13.5739C10.8459 13.7415 10.7109 13.875 10.5433 13.9744C10.3786 14.0739 10.1967 14.1236 9.99787 14.1236Z" fill="white"/>
-										</svg>
-										<svg width="15" height="15" viewBox="0 0 20 20" class="hidden" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<circle cx="10" cy="10" r="10" fill="#68D753"/>
-											<line x1="6.38765" y1="8.96481" x2="9.54712" y2="12.8401" stroke="white"/>
-											<line x1="8.80605" y1="12.7273" x2="14.8872" y2="6.64614" stroke="white"/>
-										</svg>
-									</span>
-									<small class="red verdana left hide ml-5p">error mssg</small>
-								</div>
-							</div>
-							
-							<div class="w-100  h-60p mt-20p p-r right mb-10p p-10p bsbb">
-								<div class="w-100 h-100">
-									<span class="iblock left h-100">
-											<span class="verdana black h-100 fs-13p center capitalize">already a member<a href="login" id="login" class="td-none theme switch-link">login</a></span>
-									</span>
-									<span class="iblock right h-100">
-										<button class="bc-theme p-10p b-none w-100p">
-											<span class="verdana white fs-15p capitalize">signup</span>
-										</button>
-									</span>
-								</div>
-							</div>
-						</form>
-					</div>
-				</span>
-			</div>
-		</div>
-	</div>
-	<!-- end of login section -->
-</div>
+  
+      <div class='contact-form-section'>
+        <div class="contact-container">
+          <div class="contact-header">
+              <h1 class="contact-title">Get in touch.</h1>
+              <p class="contact-description">Fill out the form below, and i'll get back to you as soon as possible.</p>
+          </div>
+          
+          <form class="contact-form">
+              <div class="contact-form-row">
+                  <input type="text" class="contact-input" placeholder="Your Name" required>
+                  <input type="tel" class="contact-input" placeholder="Phone Number">
+              </div>
+              
+              <div class="contact-form-group">
+                  <input type="text" class="contact-input" placeholder="Subject" required>
+              </div>
+              
+              <div class="contact-form-group">
+                  <textarea class="contact-textarea" placeholder="Message" required></textarea>
+              </div>
+              
+              <button type="submit" class="bc-theme b-none py-15p px-40p w-170p br-15p white fw-semibold">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+      <div class="footer-section text-light py-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <a href="../">
+                <img src="/images/logo-nav-white.png" alt="logo" class="img-fluid mb-3" style="height: 50px; width: 150px;">
+              </a>
+              <p>Making your digital experience better with innovative solutions.</p>
+              <div class="social-icons mt-3">
+                <a href="https://www.facebook.com/people/Ingoga-Tc/pfbid02u4KkgCBvub2RW38ruSkywUPuCTTNreMAZH42fRfdDzvxANWWNbExWTWAK7HeRTuil/" class="me-2"><i class="bi bi-facebook"></i></a>
+                <a href="https://x.com/ingoga_tech?s=21" class="me-2"><i class="bi bi-twitter"></i></a>
+                <a href="https://www.linkedin.com/company/ingoga-technologies-ltd/" class="me-2"><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.instagram.com/ingoga_technologies_ltd?igsh=c2owazI5bXdkd3Ey&utm_source=qr" class="me-2"><i class="bi bi-instagram"></i></a>
+              </div>
+            </div>
+            
+            <div class="col-md-2">
+              <h5>Quick Links</h5>
+              <ul class="list-unstyled">
+                <li><a href="#about" class="text-light text-decoration-none">About</a></li>
+                <li><a href="#features" class="text-light text-decoration-none">skills</a></li>
+                <li><a href="#why-section" class="text-light text-decoration-none">Why me?</a></li>
+                <li><a href="#portifolio" class="text-light text-decoration-none">portifolio</a></li>
+                <!-- <li><a href="#blog" class="text-light text-decoration-none">blog</a></li> -->
+                <li><a href="#contact" class="text-light text-decoration-none">Contact</a></li>
+              </ul>
+            </div>
+            
+            <div class="col-md-2">
+              <h5>Services</h5>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-light text-decoration-none">Solutions</a></li>
+                <li><a href="#" class="text-light text-decoration-none">Support</a></li>
+                <li><a href="#" class="text-light text-decoration-none">Consulting</a></li>
+                <li><a href="#" class="text-light text-decoration-none">Partnership</a></li>
+              </ul>
+            </div>
+            
+            <div class="col-md-4">
+              <h5>Contact Us</h5>
+              <address class="mb-0">
+                <p><i class="bi bi-envelope me-2"></i> hesh.teo@gmail.com</p>
+                <p><i class="bi bi-telephone me-2"></i> +250 790 861 884</p>
+                <p><i class="bi bi-geo-alt me-2"></i> Kigali<br>Rwanda</p>
+              </address>
+            </div>
+          </div>
+          
+          <hr class="bg-secondary my-4">
+          <div class="row align-items-center">
+            <div class="col-md-6 mb-md-0">
+              <p class="mb-0">&copy; 2025 _Himself All Rights Reserved .</p>
+            </div>
+            <div class="col-md-6">
+              <ul class="list-inline text-md-end mb-0">
+                <li class="list-inline-item"><a href="#" class="text-light text-decoration-none">Privacy Policy</a></li>
+                <li class="list-inline-item ms-3"><a href="#" class="text-light text-decoration-none">Terms of Service</a></li>
+                <li class="list-inline-item ms-3"><a href="#" class="text-light text-decoration-none">Cookie Policy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div> 
 </body>
 </html>
+
+<script src="/js/scripting.js" type="module"></script>
